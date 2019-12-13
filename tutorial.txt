@@ -1,0 +1,7 @@
+1 - Instalar o NodeJS: https://nodejs.org/en/
+2 - Criar uma pasta chamada "keys" e colocar o arquivo google-translate.json nela
+3 - Abrir "/cc_tobruxo" no terminal
+4 - Execute o comando "npm install"
+5 - Execute o seguinte comando: "npm i readline-sync request-promise request cheerio google-translate""
+6 - Pronto, para executar o programa execute "node index.js"
+7 - Os arquivos salvos ficarão na pasta "archive"
