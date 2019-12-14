@@ -92,14 +92,12 @@ async function robotSearch(keyword, limit) {
     }
 
     function removeWrongTitles(popularTitles) {
+        console.log("\n-------------------")
         for (let i = 0; i < popularTitles.length; i++) {
-            console.log("\n-------------------")
-            for (let i = 0; i < popularTitles.length; i++) {
-                let cleanText = popularTitles[i].normalize('NFD').replace(/([\u0300-\u036f]|[^0-9a-zA-Z]|[0-9])/g, '')
-                console.log(`${i+1} - ${cleanText}`)
-            }
-            console.log("-------------------\n")
+            let cleanText = popularTitles[i].normalize('NFD').replace(/([\u0300-\u036f]|[^0-9a-zA-Z]|[0-9])/g, '')
+            console.log(`${i+1} - ${cleanText}\n`)
         }
+        console.log("-------------------\n")
 
         let wrongTitle = readline.question('-------------------\nAdicione UM numero referentes ao titúlo que não pertencem a algum anime e tecle ENTER (quando a lista estiver em ordem, digite "continue" para prosseguir): ');
 
@@ -109,7 +107,7 @@ async function robotSearch(keyword, limit) {
             console.log("\n-------------------")
             for (let i = 0; i < popularTitles.length; i++) {
                 let cleanText = popularTitles[i].normalize('NFD').replace(/([\u0300-\u036f]|[^0-9a-zA-Z]|[0-9])/g, '')
-                console.log(`${i+1} - ${cleanText}`)
+                console.log(`${i+1} - ${cleanText}\n`)
             }
             console.log("-------------------\n")
             wrongTitle = readline.question('Adicione UM numero referentes ao titúlo que não pertencem a algum anime e tecle ENTER (quando a lista estiver em ordem, digite "continue" para prosseguir): ');
