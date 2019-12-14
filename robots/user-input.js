@@ -1,23 +1,21 @@
 const readline = require("readline-sync");
 
-function userInput(anime) {
-    anime.url = askUrlMyAnimeList()
-    anime.archive = askArchiveAnime()
+function userInput() {
+    keyword = askKeyword()
+    limit = askLimit()
 
-    function askUrlMyAnimeList() {
-        let ask = readline.question("Insira a URL do anime (MYANIMELIST): ");
+    return [keyword, limit]
 
-        while (ask.indexOf("https://myanimelist.net/")) {
-            ask = readline.question(`A URL inserida (${ask}) não pertence ao site "MYANIMELIST"\nPor favor, insira uma URL válida: `);
-        }
+    function askKeyword() {
+        let userAskKeyword = readline.question("Insira a palavra chave: ");
 
-        return ask
+        return userAskKeyword
     }
 
-    function askArchiveAnime() {
-        let askArchive = readline.question("Nome do documento em que deseja salvar a estrutura: ");
+    function askLimit() {
+        let userAskLimit = readline.question("Quantidade de animes: ");
 
-        return askArchive
+        return userAskLimit
     }
 }
 

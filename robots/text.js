@@ -3,10 +3,34 @@ const cheerio = require("cheerio");
 const api = require("../keys/google-translate.json").API_KEY
 const googleTranslate = require("google-translate")(api);
 
-async function robotText(anime) {
-    await captureContentFromMyAnimeList(anime)
-    treatContent(anime)
-    await translateContent(anime)
+async function robotText(urlsMyAnimeList) {
+    const animes = []
+
+    for (let i = 0; i < urlsMyAnimeList.length; i++) {
+        animes.push({
+            url: urlsMyAnimeList[i],
+            name: "",
+            info: {
+                nameEnglish: "",
+                nameJapanese: "",
+                episodes: "...",
+                genres: "",
+                aired: "",
+                studios: "",
+                trailer: "Teaser",
+                watch: "??"
+            },
+            synopsis: "",
+            archive: "text",
+        })
+    }
+    for (let i = 0; i < animes.length; i++) {
+        await captureContentFromMyAnimeList(animes[i])
+        treatContent(animes[i])
+        await translateContent(animes[i])
+    }
+
+    return animes
 
 
     async function captureContentFromMyAnimeList(anime) {

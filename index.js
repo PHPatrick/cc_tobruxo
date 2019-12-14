@@ -2,39 +2,25 @@ const fs = require("fs");
 
 const robots = {
     userInput: require("./robots/user-input"),
+    search: require("./robots/search"),
     text: require("./robots/text"),
     format: require("./robots/format"),
 };
 
 async function start() {
-    const anime = {
-        url: "",
-        name: "",
-        info: {
-            nameEnglish: "",
-            nameJapanese: "",
-            episodes: "...",
-            genres: "",
-            aired: "",
-            studios: "",
-            trailer: "Teaser",
-            watch: "??"
-        },
-        synopsis: "",
-        archive: "deathnote",
-    };
 
-    robots.userInput(anime)
-    await robots.text(anime)
-    const content = robots.format(anime)
+    const [keyword, limit] = robots.userInput()
+    const urlsMyAnimeList = await robots.search(keyword, limit)
+    const animes = await robots.text(urlsMyAnimeList)
+    const content = robots.format(animes)
 
 
-    fs.writeFile(`./archive/${anime.archive}.txt`, content,
+    fs.writeFile(`./archive/${keyword.normalize('NFD').replace(/([\u0300-\u036f]|[^0-9a-zA-Z])/g, '')}.txt`, content,
         function (erro) {
             if (erro) {
                 throw erro;
             }
-            console.log("Arquivo salvo com sucesso!");
+            console.log("=========================\nArquivo salvo com sucesso!\n=========================");
         });
 }
 
