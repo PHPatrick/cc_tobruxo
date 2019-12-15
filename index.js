@@ -14,7 +14,6 @@ async function start() {
     const animes = await robots.text(urlsMyAnimeList)
     const content = robots.format(animes)
 
-
     fs.writeFile(`./archive/${keyword.normalize('NFD').replace(/([\u0300-\u036f]|[^0-9a-zA-Z])/g, '')}.txt`, content,
         function (erro) {
             if (erro) {

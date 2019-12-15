@@ -21,8 +21,8 @@ async function robotSearch(keyword, limit) {
 
 
             $("a").each(function () {
-                let url = $(this).attr("href").replace("/url?q=", "").split("&")[0]
-                if (url.indexOf("https://") !== -1 && url.indexOf("youtube") === -1 && url.indexOf("google") === -1 && url.indexOf("facebook") === -1) {
+                let url = $(this).attr("href").replace("/url?q=", "").replace("/imgres?imgurl=", "").split("&")[0]
+                if (url.indexOf("https://") !== -1 && url.indexOf("youtube") === -1 && url.indexOf("google") === -1 && url.indexOf("facebook") === -1 && url.indexOf("amazon") === -1 && url.indexOf("wikipedia") === -1) {
                     urlsByGoogle.push(url)
                 }
             })
@@ -50,7 +50,7 @@ async function robotSearch(keyword, limit) {
                             return true;
                         });
 
-                        titleByUrls.push(h2Treated.join("%20"));
+                        titleByUrls.push(h2Treated.join(" "));
                     }
                 })
 
@@ -68,7 +68,7 @@ async function robotSearch(keyword, limit) {
                             return true;
                         });
 
-                        titleByUrls.push(h3Treated.join("%20"));
+                        titleByUrls.push(h3Treated.join(" "));
                     }
                 })
 
@@ -94,25 +94,29 @@ async function robotSearch(keyword, limit) {
     function removeWrongTitles(popularTitles) {
         console.log("\n-------------------")
         for (let i = 0; i < popularTitles.length; i++) {
-            let cleanText = popularTitles[i].normalize('NFD').replace(/([\u0300-\u036f]|[^0-9a-zA-Z]|[0-9])/g, '')
+            let cleanText = popularTitles[i]
             console.log(`${i+1} - ${cleanText}\n`)
         }
         console.log("-------------------\n")
 
-        let wrongTitle = readline.question('-------------------\nAdicione UM numero referentes ao titúlo que não pertencem a algum anime e tecle ENTER (quando a lista estiver em ordem, digite "continue" para prosseguir): ');
+        let wrongTitle = readline.question('-------------------\nAdicione UM numero referentes ao titulo que nao pertencem a algum anime e tecle ENTER (quando a lista estiver em ordem, digite "continue" para prosseguir): ');
 
 
         while (wrongTitle != "continue") {
             popularTitles.splice(wrongTitle - 1, 1)
             console.log("\n-------------------")
             for (let i = 0; i < popularTitles.length; i++) {
-                let cleanText = popularTitles[i].normalize('NFD').replace(/([\u0300-\u036f]|[^0-9a-zA-Z]|[0-9])/g, '')
+                let cleanText = popularTitles[i]
                 console.log(`${i+1} - ${cleanText}\n`)
             }
             console.log("-------------------\n")
-            wrongTitle = readline.question('Adicione UM numero referentes ao titúlo que não pertencem a algum anime e tecle ENTER (quando a lista estiver em ordem, digite "continue" para prosseguir): ');
+            wrongTitle = readline.question('Adicione UM numero referentes ao titulo que nao pertencem a algum anime e tecle ENTER (quando a lista estiver em ordem, digite "continue" para prosseguir): ');
         }
 
+
+        for (let i = 0; i < popularTitles.length; i++) {
+            popularTitles[i].replace(" ", "%20")
+        }
         return popularTitles
     }
 
