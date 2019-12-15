@@ -5,6 +5,7 @@ const readline = require("readline-sync");
 async function robotSearch(keyword, limit) {
     const urlsByGoogle = []
     const titleByUrls = []
+
     await getUrlByGoogle(keyword)
     await getH2andH3ByUrls(urlsByGoogle)
     const popularTitles = filterTitles(titleByUrls, limit)
@@ -21,11 +22,24 @@ async function robotSearch(keyword, limit) {
 
 
             $("a").each(function () {
-                let url = $(this).attr("href").replace("/url?q=", "").replace("/imgres?imgurl=", "").split("&")[0]
-                if (url.indexOf("https://") !== -1 && url.indexOf("youtube") === -1 && url.indexOf("google") === -1 && url.indexOf("facebook") === -1 && url.indexOf("amazon") === -1 && url.indexOf("wikipedia") === -1) {
+                let url = clearUrl($(this).attr("href"))
+
+                if (verifyUrl(url)) {
                     urlsByGoogle.push(url)
                 }
             })
+
+            function clearUrl(url) {
+                return url.replace("/url?q=", "").replace("/imgres?imgurl=", "").replace("%23", "#").split("&")[0]
+            }
+
+            function verifyUrl(url) {
+                if (url.indexOf("https://") !== -1 && url.indexOf("youtube") === -1 && url.indexOf("google") === -1 && url.indexOf("facebook") === -1 && url.indexOf("amazon") === -1 && url.indexOf("wikipedia") === -1 && url.indexOf(".jpg") === -1 && url.indexOf(".png") === -1) {
+                    return true
+                }
+                return false
+            }
+
         })
     }
 
@@ -36,41 +50,28 @@ async function robotSearch(keyword, limit) {
 
                 const $ = cheerio.load(body)
 
-                $("h2").each(function () {
-                    let h2 = $(this).text().trim()
-                    if (h2.indexOf("<") === -1) {
-                        let removeSpecialCharsAndNumbers = h2.normalize('NFD').replace(/([\u0300-\u036f]|[^0-9a-zA-Z\s]|[0-9])/g, '').toLowerCase()
+                eachTitle("h2")
+                eachTitle("h3")
 
-                        let lines = removeSpecialCharsAndNumbers.split(" ")
+                function eachTitle(text) {
+                    $(text).each(function () {
+                        let title = $(this).text().trim()
+                        if (title.indexOf("<") === -1) {
+                            let removeSpecialCharsAndNumbers = title.normalize('NFD').replace(/([\u0300-\u036f]|[^0-9a-zA-Z\s]|[0-9])/g, '').toLowerCase()
 
-                        const h2Treated = lines.filter(line => {
-                            if (line.trim().length === 0 || line.trim() === / /g) {
-                                return false;
-                            }
-                            return true;
-                        });
+                            let lines = removeSpecialCharsAndNumbers.split(" ")
 
-                        titleByUrls.push(h2Treated.join(" "));
-                    }
-                })
+                            const titleTreated = lines.filter(line => {
+                                if (line.trim().length === 0 || line.trim() === / /g) {
+                                    return false;
+                                }
+                                return true;
+                            });
 
-                $("h3").each(function () {
-                    let h3 = $(this).text().trim()
-                    if (h3.indexOf("<") === -1) {
-                        let removeSpecialCharsAndNumbers = h3.normalize('NFD').replace(/([\u0300-\u036f]|[^0-9a-zA-Z\s]|[0-9])/g, '').toLowerCase()
-
-                        let lines = removeSpecialCharsAndNumbers.split(" ")
-
-                        const h3Treated = lines.filter(line => {
-                            if (line.trim().length === 0 || line.trim() === / /g) {
-                                return false;
-                            }
-                            return true;
-                        });
-
-                        titleByUrls.push(h3Treated.join(" "));
-                    }
-                })
+                            titleByUrls.push(titleTreated.join(" "));
+                        }
+                    })
+                }
 
             })
         }
@@ -79,45 +80,54 @@ async function robotSearch(keyword, limit) {
     function filterTitles(titleByUrls, limit) {
         arr = []
         for (let i = 0; i < titleByUrls.length; i++) {
-
             let count = 0;
-            titleByUrls.forEach((v) => (v === titleByUrls[i] && count++));
+
+            titleByUrls.forEach((v) => (v.toLowerCase() === titleByUrls[i].toLowerCase() && count++));
 
             arr.push(`${count}:${titleByUrls[i]}`)
         }
 
         arr.sort().reverse()
-        let newArr = arr.filter((it, i) => arr.indexOf(it) === i);
+
+        var newArr = arr.filter(function (it, i) {
+            return arr.indexOf(it) === i;
+        });
+
         return newArr.slice(0, limit);
     }
 
+
     function removeWrongTitles(popularTitles) {
-        console.log("\n-------------------")
-        for (let i = 0; i < popularTitles.length; i++) {
-            let cleanText = popularTitles[i]
-            console.log(`${i+1} - ${cleanText}\n`)
+        questionWrongTitle(popularTitles)
+
+        return popularTitles
+
+        function questionWrongTitle() {
+            listPopularTitles(popularTitles)
+
+            let wrongTitle = readline.question('-------------------\nAdicione UM numero referentes ao titulo que nao pertencem a algum anime e tecle ENTER (quando a lista estiver em ordem, digite "continue" para prosseguir): ');
+
+            while (wrongTitle != "continue") {
+                popularTitles.splice(wrongTitle - 1, 1)
+
+                listPopularTitles(popularTitles)
+
+                wrongTitle = readline.question('Adicione UM numero referentes ao titulo que nao pertencem a algum anime e tecle ENTER (quando a lista estiver em ordem, digite "continue" para prosseguir): ');
+            }
+
+            for (let i = 0; i < popularTitles.length; i++) {
+                popularTitles[i].replace(" ", "%20")
+            }
         }
-        console.log("-------------------\n")
 
-        let wrongTitle = readline.question('-------------------\nAdicione UM numero referentes ao titulo que nao pertencem a algum anime e tecle ENTER (quando a lista estiver em ordem, digite "continue" para prosseguir): ');
-
-
-        while (wrongTitle != "continue") {
-            popularTitles.splice(wrongTitle - 1, 1)
+        function listPopularTitles(popularTitles) {
             console.log("\n-------------------")
             for (let i = 0; i < popularTitles.length; i++) {
-                let cleanText = popularTitles[i]
-                console.log(`${i+1} - ${cleanText}\n`)
+                let cleanTitle = popularTitles[i].replace(':', '').replace(/[0-9]/g, '')
+                console.log(`${i+1} - ${cleanTitle}\n`)
             }
             console.log("-------------------\n")
-            wrongTitle = readline.question('Adicione UM numero referentes ao titulo que nao pertencem a algum anime e tecle ENTER (quando a lista estiver em ordem, digite "continue" para prosseguir): ');
         }
-
-
-        for (let i = 0; i < popularTitles.length; i++) {
-            popularTitles[i].replace(" ", "%20")
-        }
-        return popularTitles
     }
 
     async function getUrlsMyAnimeList(search) {
@@ -131,8 +141,9 @@ async function robotSearch(keyword, limit) {
                 let count = 0
                 $(".hoverinfo_trigger").each(function () {
                     if (count > 0) return
+                    let url = $(this).attr("href").replace('Ψ', '').replace('★', "")
 
-                    urls.push($(this).attr("href").replace('Ψ', '').replace('★', ""))
+                    urls.push(url)
                     count++
                 })
 

@@ -21,9 +21,9 @@ async function robotText(urlsMyAnimeList) {
                 watch: "??"
             },
             synopsis: "",
-            archive: "text",
         })
     }
+
     for (let i = 0; i < animes.length; i++) {
         await captureContentFromMyAnimeList(animes[i])
         treatContent(animes[i])
@@ -102,46 +102,16 @@ async function robotText(urlsMyAnimeList) {
     }
 
     async function translateContent(anime) {
-        anime.synopsis = await translateSynopsis(anime.synopsis)
-        anime.info.genres = await translateGenres(anime.info.genres)
-        anime.info.aired = await translateAired(anime.info.aired)
+        anime.synopsis = await translateContent(anime.synopsis)
+        anime.info.genres = await translateContent(anime.info.genres)
+        anime.info.aired = await translateContent(anime.info.aired)
 
-        async function translateSynopsis(synopsis) {
+        async function translateContent(text) {
             return new Promise(async (resolve, reject) => {
-                await googleTranslate.translate(synopsis, 'pt-BR', function (err, translation) {
+                await googleTranslate.translate(text, 'pt-BR', function (err, translation) {
                     if (err) {
-                        // No caso de erro, a promessa será rejeitada.
                         reject(err);
                     } else {
-                        // No sucesso, a promessa será resolvida.
-                        resolve(translation.translatedText);
-                    }
-                });
-            });
-        }
-
-        async function translateGenres(genres) {
-            return new Promise(async (resolve, reject) => {
-                await googleTranslate.translate(genres, 'pt-BR', function (err, translation) {
-                    if (err) {
-                        // No caso de erro, a promessa será rejeitada.
-                        reject(err);
-                    } else {
-                        // No sucesso, a promessa será resolvida.
-                        resolve(translation.translatedText);
-                    }
-                });
-            });
-        }
-
-        async function translateAired(aired) {
-            return new Promise(async (resolve, reject) => {
-                await googleTranslate.translate(aired, 'pt-BR', function (err, translation) {
-                    if (err) {
-                        // No caso de erro, a promessa será rejeitada.
-                        reject(err);
-                    } else {
-                        // No sucesso, a promessa será resolvida.
                         resolve(translation.translatedText);
                     }
                 });
