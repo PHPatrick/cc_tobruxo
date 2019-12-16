@@ -6,7 +6,7 @@ function robotFormat(animes) {
         const image = `<!-- wp:image {"align":"wide"} -->\n<figure class="wp-block-image alignwide"><img alt="" /></figure>\n<!-- /wp:image -->`
         const list = `<!-- wp:list -->
     <ul>
-        <li><strong>Nome em Inglês: </strong>&nbsp;${animes[i].info.nameEnglish}<br><strong>Nome em Japonês: ${animes[i].info.nameJapanese}</strong></li>
+        <li><strong>Nome em Inglês: </strong>&nbsp;${animes[i].info.nameEnglish}<br><strong>Nome em Japonês:</strong> ${animes[i].info.nameJapanese}</li>
         <li><strong>Gênero:</strong>&nbsp;${animes[i].info.genres}</li>
         <li><strong>Episódios:</strong>&nbsp;${animes[i].info.episodes}</li>
         <li><strong>Exibido:</strong>&nbsp;${animes[i].info.aired}</li>
