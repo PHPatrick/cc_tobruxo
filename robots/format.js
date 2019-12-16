@@ -7,8 +7,8 @@ function robotFormat(animes) {
         const list = `<!-- wp:list -->
     <ul>
         <li><strong>Nome em Inglês: </strong>&nbsp;${animes[i].info.nameEnglish}<br><strong>Nome em Japonês: ${animes[i].info.nameJapanese}</strong></li>
-        <li><strong>Gênero:</strong>&nbsp;${animes[i].info.nameEnglish}</li>
-        <li><strong>Episódios:</strong>&nbsp;${animes[i].info.genres}</li>
+        <li><strong>Gênero:</strong>&nbsp;${animes[i].info.genres}</li>
+        <li><strong>Episódios:</strong>&nbsp;${animes[i].info.episodes}</li>
         <li><strong>Exibido:</strong>&nbsp;${animes[i].info.aired}</li>
         <li><strong>Estúdio:</strong>&nbsp;${animes[i].info.studios}</li >
         <li><strong>Trailer:</strong>&nbsp;${animes[i].info.trailer}</li >

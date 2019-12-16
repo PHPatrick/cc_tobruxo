@@ -21,6 +21,7 @@ async function robotText(urlsMyAnimeList) {
                 watch: "??"
             },
             synopsis: "",
+            score: ""
         })
     }
 
@@ -30,7 +31,11 @@ async function robotText(urlsMyAnimeList) {
         await translateContent(animes[i])
     }
 
-    return animes
+    animes.sort(function (a, b) {
+        return a.score - b.score;
+    });
+
+    return animes.reverse()
 
 
     async function captureContentFromMyAnimeList(anime) {
@@ -60,6 +65,7 @@ async function robotText(urlsMyAnimeList) {
             })
 
             anime.synopsis = $("[itemprop=description]").text().trim();
+            anime.score = $(".score").text().trim();
         });
     }
 

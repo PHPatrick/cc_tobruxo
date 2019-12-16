@@ -9,12 +9,12 @@ const robots = {
 
 async function start() {
 
-    const [keyword, limit] = robots.userInput()
-    const urlsMyAnimeList = await robots.search(keyword, limit)
+    const [url, archiveName, limit] = await robots.userInput()
+    const urlsMyAnimeList = await robots.search(url, limit)
     const animes = await robots.text(urlsMyAnimeList)
     const content = robots.format(animes)
 
-    fs.writeFile(`./archive/${keyword.normalize('NFD').replace(/([\u0300-\u036f]|[^0-9a-zA-Z])/g, '')}.txt`, content,
+    fs.writeFile(`./archive/${archiveName}.txt`, content,
         function (erro) {
             if (erro) {
                 throw erro;
