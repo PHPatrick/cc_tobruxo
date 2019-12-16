@@ -23,7 +23,13 @@ function robotFormat(animes) {
         const synopsis = removeLastParagraph.substring(0, removeLastParagraph.lastIndexOf("<!--"));
 
 
-        content = content + `${title}\n${image}\n${list}\n${synopsis}<!-- wp:separator {"color":"quaternary"} -->
+        content = content + `${title}\n${image}\n${list}\n<!-- wp:separator -->
+<hr class="wp-block-separator"/>
+<!-- /wp:separator -->
+
+<!-- wp:paragraph -->
+<p><strong>Sinopse:</strong></p>
+<!-- /wp:paragraph -->\n${synopsis}<!-- wp:separator {"color":"quaternary"} -->
 <hr class="wp-block-separator has-text-color has-background has-quaternary-background-color has-quaternary-color"/>
 <!-- /wp:separator -->`
     }
