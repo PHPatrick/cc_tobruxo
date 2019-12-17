@@ -26,17 +26,32 @@ async function robotSearch(url, limit) {
             })
 
             countInfo = 0
-            $(".info").each(function () {
+            score = []
+            $(".information").each(function () {
                 if (countInfo < limit) {
-                    let text = $(this).text().trim()
+                    let text = $(this).find(".info").text().trim()
                     if (text.indexOf("TV") === -1) {
                         console.log(`===========================\nUma URL foi removida por nao se encaixar no requisito "TV Series".\nURL removida: ${urlsByMyAnimeList[countInfo]}\n===========================`)
                         urlsByMyAnimeList.splice(countInfo, 1)
+                    } else {
+                        let release = $(this).find(".info").text().trim().split(",")[1]
+                        let scoreMyAnimeList = $(this).find(".score").text().trim()
+                        let actualYear = new Date().getFullYear();
+
+                        let newScore = scoreMyAnimeList - ((actualYear - release) * 0.05)
+
+                        score.push(newScore)
                     }
+
                     countInfo++
                 }
             })
 
+            for (let i = 0; i < urlsByMyAnimeList.length; i++) {
+                urlsByMyAnimeList[i] = `${score[i]}::::${urlsByMyAnimeList[i]}`
+            }
+
+            urlsByMyAnimeList.sort().reverse()
         })
     }
 
@@ -49,6 +64,10 @@ async function robotSearch(url, limit) {
         }
 
         questionUnwanted(urlsByMyAnimeList, animeNames)
+
+        for (let i = 0; i < urlsByMyAnimeList.length; i++) {
+            urlsByMyAnimeList[i] = urlsByMyAnimeList[i].split("::::")[1]
+        }
 
         function questionUnwanted(urlsByMyAnimeList, animeNames) {
             listAnimeName(animeNames)

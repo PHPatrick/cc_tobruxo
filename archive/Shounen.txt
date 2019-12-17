@@ -1,0 +1,201 @@
+<!-- wp:heading -->
+<h2>Fullmetal Alchemist: Brotherhood</h2>
+<!-- /wp:heading -->
+<!-- wp:image {"align":"wide"} -->
+<figure class="wp-block-image alignwide"><img alt="" /></figure>
+<!-- /wp:image -->
+<!-- wp:list -->
+    <ul>
+        <li><strong>Nome em Inglês: </strong>&nbsp; Fullmetal Alchemist<br><strong>Nome em Japonês:</strong>  鋼の錬金術師 FULLMETAL ALCHEMIST</li>
+        <li><strong>Gênero:</strong>&nbsp;AçãoAção, MilitarMilitar, AventuraAventura, ComédiaComédia, DramaDrama, MagiaMágica, FantasiaFantasia, ShounenShounen</li>
+        <li><strong>Episódios:</strong>&nbsp;64</li>
+        <li><strong>Exibido:</strong>&nbsp;5 de abril de 2009 a 4 de julho de 2010</li>
+        <li><strong>Estúdio:</strong>&nbsp;Bones</li >
+        <li><strong>Trailer:</strong>&nbsp;Teaser</li >
+        <li><strong>Onde Assistir:</strong>&nbsp;??</li>
+    </ul>
+    <!-- /wp:list -->
+<!-- wp:separator -->
+<hr class="wp-block-separator"/>
+<!-- /wp:separator -->
+
+<!-- wp:paragraph -->
+<p><strong>Sinopse:</strong></p>
+<!-- /wp:paragraph -->
+<!-- wp:paragraph -->
+<p>"Para que algo seja obtido, algo de igual valor deve ser perdido.</p>
+<!-- /wp:paragraph -->
+<!-- wp:paragraph -->
+<p>" A alquimia está vinculada a essa lei da troca equivalente - algo que os jovens irmãos Edward e Alphonse Elric só percebem após tentar a transmutação humana: o único ato proibido de alquimia.</p>
+<!-- /wp:paragraph -->
+<!-- wp:paragraph -->
+<p> Eles pagam um preço terrível por sua transgressão - Edward perde a perna esquerda, Alphonse, seu corpo físico.</p>
+<!-- /wp:paragraph -->
+<!-- wp:paragraph -->
+<p> É apenas pelo sacrifício desesperado do braço direito de Edward que ele é capaz de fixar a alma de Alphonse em uma armadura.</p>
+<!-- /wp:paragraph -->
+<!-- wp:paragraph -->
+<p> Devastada e sozinha, é a esperança de que ambos retornem aos seus corpos originais que dá a Edward a inspiração para obter membros de metal chamados "automail" e se tornar um alquimista de estado, o Fullmetal Alchemist.</p>
+<!-- /wp:paragraph -->
+<!-- wp:paragraph -->
+<p> Três anos depois, os irmãos buscam a Pedra Filosofal, uma relíquia mítica que permite ao alquimista superar a Lei da Troca Equivalente.</p>
+<!-- /wp:paragraph -->
+<!-- wp:paragraph -->
+<p> Mesmo com os aliados militares Coronel Roy Mustang, Tenente Riza Hawkeye e Tenente Coronel Maes Hughes ao seu lado, os irmãos se vêem envolvidos em uma conspiração nacional que os leva não apenas à verdadeira natureza da indescritível Pedra Filosofal, mas também à obscuridade de seu país.</p>
+<!-- /wp:paragraph -->
+<!-- wp:paragraph -->
+<p> história também.</p>
+<!-- /wp:paragraph -->
+<!-- wp:paragraph -->
+<p> Entre encontrar um serial killer e correr contra o tempo, Edward e Alphonse devem se perguntar se o que eles estão fazendo os tornará humanos novamente .</p>
+<!-- /wp:paragraph -->
+<!-- wp:paragraph -->
+<p>.</p>
+<!-- /wp:paragraph -->
+<!-- wp:paragraph -->
+<p>.</p>
+<!-- /wp:paragraph -->
+<!-- wp:paragraph -->
+<p> ou tirarão sua humanidade.</p>
+<!-- /wp:paragraph -->
+<!-- wp:separator {"color":"quaternary"} -->
+<hr class="wp-block-separator has-text-color has-background has-quaternary-background-color has-quaternary-color"/>
+<!-- /wp:separator --><!-- wp:heading -->
+<h2>Boku no Hero Academia</h2>
+<!-- /wp:heading -->
+<!-- wp:image {"align":"wide"} -->
+<figure class="wp-block-image alignwide"><img alt="" /></figure>
+<!-- /wp:image -->
+<!-- wp:list -->
+    <ul>
+        <li><strong>Nome em Inglês: </strong>&nbsp; My Hero Academia<br><strong>Nome em Japonês:</strong>  僕のヒーローアカデミア</li>
+        <li><strong>Gênero:</strong>&nbsp;AçãoAção, ComédiaComédia, EscolaSchool, ShounenShounen, Super PowerSuper Power</li>
+        <li><strong>Episódios:</strong>&nbsp;13</li>
+        <li><strong>Exibido:</strong>&nbsp;3 de abril de 2016 a 26 de junho de 2016</li>
+        <li><strong>Estúdio:</strong>&nbsp;Bones</li >
+        <li><strong>Trailer:</strong>&nbsp;Teaser</li >
+        <li><strong>Onde Assistir:</strong>&nbsp;??</li>
+    </ul>
+    <!-- /wp:list -->
+<!-- wp:separator -->
+<hr class="wp-block-separator"/>
+<!-- /wp:separator -->
+
+<!-- wp:paragraph -->
+<p><strong>Sinopse:</strong></p>
+<!-- /wp:paragraph -->
+<!-- wp:paragraph -->
+<p>O surgimento de "peculiaridades", superpoderes recém-descobertos, tem aumentado constantemente ao longo dos anos, com 80% da humanidade possuindo várias habilidades, desde a manipulação de elementos até a mudança de forma.</p>
+<!-- /wp:paragraph -->
+<!-- wp:paragraph -->
+<p> Isso deixa o restante do mundo completamente impotente, e Izuku Midoriya é um desses indivíduos.</p>
+<!-- /wp:paragraph -->
+<!-- wp:paragraph -->
+<p> Desde criança, o ambicioso estudante do ensino médio só queria ser um herói.</p>
+<!-- /wp:paragraph -->
+<!-- wp:paragraph -->
+<p> O destino injusto de Izuku o deixa admirando heróis e anotando-os sempre que pode.</p>
+<!-- /wp:paragraph -->
+<!-- wp:paragraph -->
+<p> Mas parece que sua persistência deu frutos: Izuku conhece o herói número um e seu ídolo pessoal, All Might.</p>
+<!-- /wp:paragraph -->
+<!-- wp:paragraph -->
+<p> A peculiaridade de All Might é uma habilidade única que pode ser herdada, e ele escolheu Izuku para ser seu sucessor! Com muitos meses de treinamento exaustivo, Izuku se matricula na UA High, uma prestigiada escola famosa por seu excelente programa de treinamento de heróis, e os calouros deste ano parecem especialmente promissores.</p>
+<!-- /wp:paragraph -->
+<!-- wp:paragraph -->
+<p> Com seus colegas de classe bizarros, mas talentosos, e a ameaça iminente de uma organização vilã, Izuku logo aprenderá o que realmente significa ser um herói.</p>
+<!-- /wp:paragraph -->
+<!-- wp:separator {"color":"quaternary"} -->
+<hr class="wp-block-separator has-text-color has-background has-quaternary-background-color has-quaternary-color"/>
+<!-- /wp:separator --><!-- wp:heading -->
+<h2>Shingeki no Kyojin</h2>
+<!-- /wp:heading -->
+<!-- wp:image {"align":"wide"} -->
+<figure class="wp-block-image alignwide"><img alt="" /></figure>
+<!-- /wp:image -->
+<!-- wp:list -->
+    <ul>
+        <li><strong>Nome em Inglês: </strong>&nbsp; Attack on Titan<br><strong>Nome em Japonês:</strong>  進撃の巨人</li>
+        <li><strong>Gênero:</strong>&nbsp;AçãoAção, MilitarMilitar, Mistério, Mistério, Super PoderSuper Poder, DramaDrama, FantasiaFantasia, ShounenShounen</li>
+        <li><strong>Episódios:</strong>&nbsp;25</li>
+        <li><strong>Exibido:</strong>&nbsp;7 de abril de 2013 a 29 de setembro de 2013</li>
+        <li><strong>Estúdio:</strong>&nbsp;Wit Studio</li >
+        <li><strong>Trailer:</strong>&nbsp;Teaser</li >
+        <li><strong>Onde Assistir:</strong>&nbsp;??</li>
+    </ul>
+    <!-- /wp:list -->
+<!-- wp:separator -->
+<hr class="wp-block-separator"/>
+<!-- /wp:separator -->
+
+<!-- wp:paragraph -->
+<p><strong>Sinopse:</strong></p>
+<!-- /wp:paragraph -->
+<!-- wp:paragraph -->
+<p>Séculos atrás, a humanidade foi massacrada até quase extinção por monstruosas criaturas humanóides chamadas titãs, forçando os humanos a se esconderem com medo por trás de enormes paredes concêntricas.</p>
+<!-- /wp:paragraph -->
+<!-- wp:paragraph -->
+<p> O que torna esses gigantes realmente aterrorizantes é que seu gosto pela carne humana não nasce da fome, mas do que parece ser um prazer.</p>
+<!-- /wp:paragraph -->
+<!-- wp:paragraph -->
+<p> Para garantir sua sobrevivência, os remanescentes da humanidade começaram a viver dentro de barreiras defensivas, resultando em cem anos sem um único encontro titânico.</p>
+<!-- /wp:paragraph -->
+<!-- wp:paragraph -->
+<p> No entanto, essa calma frágil é logo destruída quando um titã colossal consegue romper a parede externa supostamente inexpugnável, reacendendo a luta pela sobrevivência contra as abominações devoradoras de homens.</p>
+<!-- /wp:paragraph -->
+<!-- wp:paragraph -->
+<p> Depois de testemunhar uma terrível perda pessoal nas mãos das criaturas invasoras, Eren Yeager dedica sua vida à sua erradicação, alistando-se no Survey Corps, uma unidade militar de elite que combate os humanóides impiedosos fora da proteção das muralhas.</p>
+<!-- /wp:paragraph -->
+<!-- wp:paragraph -->
+<p> Baseado no mangá premiado de Hajime Isayama, Shingeki no Kyojin segue Eren, junto com sua irmã adotiva Mikasa Ackerman e seu amigo de infância Armin Arlert, enquanto eles se juntam à brutal guerra contra os titãs e correm para descobrir uma maneira de derrotá-los antes do último paredes são violadas.</p>
+<!-- /wp:paragraph -->
+<!-- wp:separator {"color":"quaternary"} -->
+<hr class="wp-block-separator has-text-color has-background has-quaternary-background-color has-quaternary-color"/>
+<!-- /wp:separator --><!-- wp:heading -->
+<h2>Death Note</h2>
+<!-- /wp:heading -->
+<!-- wp:image {"align":"wide"} -->
+<figure class="wp-block-image alignwide"><img alt="" /></figure>
+<!-- /wp:image -->
+<!-- wp:list -->
+    <ul>
+        <li><strong>Nome em Inglês: </strong>&nbsp; Death Note<br><strong>Nome em Japonês:</strong>  デスノート</li>
+        <li><strong>Gênero:</strong>&nbsp;Mistério, Mistério, Polícia, Polícia, Psicológico, Psicológico, Sobrenatural, Sobrenatural, ThrillerThriller, ShounenShounen</li>
+        <li><strong>Episódios:</strong>&nbsp;37</li>
+        <li><strong>Exibido:</strong>&nbsp;4 de outubro de 2006 a 27 de junho de 2007</li>
+        <li><strong>Estúdio:</strong>&nbsp;Madhouse</li >
+        <li><strong>Trailer:</strong>&nbsp;Teaser</li >
+        <li><strong>Onde Assistir:</strong>&nbsp;??</li>
+    </ul>
+    <!-- /wp:list -->
+<!-- wp:separator -->
+<hr class="wp-block-separator"/>
+<!-- /wp:separator -->
+
+<!-- wp:paragraph -->
+<p><strong>Sinopse:</strong></p>
+<!-- /wp:paragraph -->
+<!-- wp:paragraph -->
+<p>Um shinigami, como um deus da morte, pode matar qualquer pessoa - desde que veja o rosto da vítima e escreva o nome da vítima em um caderno chamado Death Note.</p>
+<!-- /wp:paragraph -->
+<!-- wp:paragraph -->
+<p> Um dia, Ryuk, entediado com o estilo de vida shinigami e interessado em ver como um humano usaria um Death Note, coloca um no reino humano.</p>
+<!-- /wp:paragraph -->
+<!-- wp:paragraph -->
+<p> O estudante do ensino médio e o prodígio Light Yagami se deparam com o Death Note e - desde que deplora o estado do mundo - testam o caderno mortal escrevendo o nome de um criminoso.</p>
+<!-- /wp:paragraph -->
+<!-- wp:paragraph -->
+<p> Quando o criminoso morre imediatamente após sua experiência com o Death Note, Light fica muito surpreso e rapidamente reconhece o quão devastador o poder que caiu em suas mãos poderia ser.</p>
+<!-- /wp:paragraph -->
+<!-- wp:paragraph -->
+<p> Com essa capacidade divina, Light decide extinguir todos os criminosos, a fim de construir um novo mundo onde o crime não existe e as pessoas o adorem como um deus.</p>
+<!-- /wp:paragraph -->
+<!-- wp:paragraph -->
+<p> A polícia, no entanto, descobre rapidamente que um serial killer está mirando criminosos e, conseqüentemente, tenta prender o culpado.</p>
+<!-- /wp:paragraph -->
+<!-- wp:paragraph -->
+<p> Para fazer isso, os investigadores japoneses contam com a assistência do melhor detetive do mundo: um homem jovem e excêntrico conhecido apenas pelo nome de L.</p>
+<!-- /wp:paragraph -->
+<!-- wp:separator {"color":"quaternary"} -->
+<hr class="wp-block-separator has-text-color has-background has-quaternary-background-color has-quaternary-color"/>
+<!-- /wp:separator -->
