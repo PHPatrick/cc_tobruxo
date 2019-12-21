@@ -13,6 +13,10 @@ function robotFormat() {
     function generateStructure(item) {
         let structureContent = ""
         let list = ""
+
+        let tableNames = generateTableNames(content.items)
+
+
         for (let i = 0; i < item.length; i++) {
             console.log(`\n> [format-robot] [${i+1}] [${item[i].name}] Formatando...\n`)
             const title = `<!-- wp:heading -->\n<h2>${item[i].name}</h2>\n<!-- /wp:heading -->`
@@ -40,7 +44,30 @@ function robotFormat() {
 <!-- /wp:separator -->`
         }
 
-        content.wpContent = structureContent
+        content.wpContent = `${tableNames} ${structureContent}`
+    }
+
+    function generateTableNames(item) {
+        let head = `<!-- wp:table {"hasFixedLayout":true,"className":"is-style-regular"} -->
+<figure class="wp-block-table is-style-regular">
+    <table class="has-fixed-layout">
+        <thead>
+            <tr>
+                <th class="has-text-align-center" data-align="center"> Nomes em Inglês </th>
+                <th class="has-text-align-left" data-align="left"> <strong>Nomes em Japonês</strong></th>
+            </tr>
+        </thead>
+        <tbody>`
+
+        let names = ""
+        for (let i = 0; i < item.length; i++) {
+            let verifyNameJapanese = item[i].info.nameEnglish.indexOf(item[i].name) !== -1 ? "----" : item[i].name
+            names = names + `<tr><td class="has-text-align-center" data-align="center"><strong>${i + 1}.</strong> ${item[i].info.nameEnglish}</td><td class="has-text-align-left" data-align="left">${verifyNameJapanese}</td></tr>`
+        }
+
+        let foot = `</tbody></table></figure><!-- /wp:table -->`
+
+        return head + names + foot
     }
 
     function animeInfoStructure(item) {
