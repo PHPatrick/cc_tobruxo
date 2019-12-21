@@ -2,73 +2,151 @@ const requestPromise = require("request-promise");
 const cheerio = require("cheerio");
 const api = require("../keys/google-translate.json").API_KEY
 const googleTranslate = require("google-translate")(api);
+const state = require("./state")
 
-async function robotText(urlsMyAnimeList) {
-    const animes = []
+async function robotText() {
+    console.log('\n> [text-robot] Start...\n')
+    const content = state.load()
+    content.items = []
 
-    for (let i = 0; i < urlsMyAnimeList.length; i++) {
-        animes.push({
-            url: urlsMyAnimeList[i],
-            name: "",
-            info: {
-                nameEnglish: "",
-                nameJapanese: "",
-                episodes: "...",
-                genres: "",
-                aired: "",
-                studios: "",
-                trailer: "Teaser",
-                watch: "??"
-            },
-            synopsis: ""
-        })
+    for (let i = 0; i < content.urlsItems.length; i++) {
+        console.log(`\n> [robot-text] [${content.type}] [${i+1}] Coletando, tratando e traduzindo o conteudo...`)
+        await captureContent(content.urlsItems[i])
+        treatContent(content.items[i])
+        await translateContent(content.items[i])
     }
 
-    for (let i = 0; i < animes.length; i++) {
-        await captureContentFromMyAnimeList(animes[i])
-        treatContent(animes[i])
-        await translateContent(animes[i])
-    }
+    state.save(content)
+    console.log('\n> [text-robot] Stop...\n')
 
-    return animes
-
-    async function captureContentFromMyAnimeList(anime) {
-        await requestPromise(anime.url, (err, res, body) => {
+    async function captureContent(url) {
+        await requestPromise(url, (err, res, body) => {
             if (err) console.log("Erro: " + err);
 
             const $ = cheerio.load(body);
 
-            anime.name = $(".h1 [itemprop=name]").text().trim();
+            if (content.type === "anime") {
+                captureContentForAnimes()
+            } else if (content.type === "manga") {
+                captureContentForMangas()
+            }
 
-            $(".spaceit_pad").each(function () {
-                let lang = $(this).text().trim().split(":")[0];
-                let text = $(this).text().trim().split(":")[1];
+            function captureContentForAnimes() {
+                let anime = {
+                    url: "",
+                    name: "",
+                    info: {
+                        nameEnglish: "",
+                        nameJapanese: "",
+                        episodes: "...",
+                        genres: "",
+                        aired: "",
+                        studios: "",
+                        trailer: "Teaser",
+                        watch: "??"
+                    },
+                    synopsis: ""
+                }
 
-                (lang === "English") ? anime.info.nameEnglish = text:
-                    (lang === "Japanese") ? anime.info.nameJapanese = text : false
-            })
+                anime.url = url
+                anime.name = $(".h1 [itemprop=name]").text().trim();
 
-            $(".js-scrollfix-bottom div").each(function () {
-                let type = $(this).text().trim().split(":")[0];
-                let text = $(this).text().trim().split(":")[1];
+                $(".spaceit_pad").each(function () {
+                    let lang = $(this).text().trim().split(":")[0];
+                    let text = $(this).text().trim().split(":")[1];
 
-                (type === "Episodes") ? anime.info.episodes = text:
-                    (type === "Aired") ? anime.info.aired = text :
-                    (type === "Genres") ? anime.info.genres = text :
-                    (type === "Studios") ? anime.info.studios = text : false
-            })
+                    (lang === "English") ? anime.info.nameEnglish = text:
+                        (lang === "Japanese") ? anime.info.nameJapanese = text : false
+                })
 
-            anime.synopsis = $("[itemprop=description]").text().trim();
+                $(".js-scrollfix-bottom div").each(function () {
+                    let type = $(this).text().trim().split(":")[0];
+                    let text = $(this).text().trim().split(":")[1];
+                    let arrGenre = []
+
+                    if (type === "Episodes") anime.info.episodes = text
+                    else if (type === "Aired") anime.info.aired = text
+                    else if (type === "Genres") {
+                        $(this).find("[itemprop='genre']").each(function () {
+                            arrGenre.push($(this).text().trim())
+                        })
+                        anime.info.genres = arrGenre.join(", ")
+                    } else if (type === "Studios") anime.info.studios = text
+                    else false
+
+                })
+
+                anime.info.genres.replace()
+
+                anime.synopsis = $("[itemprop=description]").text().trim();
+                anime.trailer = "Teaser"
+                anime.watch = "??"
+                content.items.push(anime)
+            }
+
+            function captureContentForMangas() {
+                let manga = {
+                    url: "",
+                    name: "",
+                    info: {
+                        nameEnglish: "",
+                        nameJapanese: "",
+                        volumes: "...",
+                        chapters: "",
+                        status: "",
+                        published: "",
+                        genres: "",
+                        authors: "",
+                        serialization: ""
+                    },
+                    synopsis: ""
+                }
+
+                manga.url = url
+                manga.name = $(".h1 [itemprop=name]").text().trim();
+
+                $(".spaceit_pad").each(function () {
+                    let lang = $(this).text().trim().split(":")[0];
+                    let text = $(this).text().trim().split(":")[1];
+
+                    (lang === "English") ? manga.info.nameEnglish = text:
+                        (lang === "Japanese") ? manga.info.nameJapanese = text : false
+                })
+
+                $(".js-scrollfix-bottom div").each(function () {
+                    let type = $(this).text().trim().split(":")[0];
+                    let text = $(this).text().trim().split(":")[1];
+                    let arrGenre = []
+
+                    if (type === "Volumes") manga.info.volumes = text
+                    else if (type === "Chapters") manga.info.chapters = text
+                    else if (type === "Status") manga.info.status = text
+                    else if (type === "Published") manga.info.published = text
+                    else if (type === "Genres") {
+                        $(this).find("[itemprop='genre']").each(function () {
+                            arrGenre.push($(this).text().trim())
+                        })
+                        manga.info.genres = arrGenre.join(", ")
+                    } else if (type === "Authors") manga.info.authors = text
+                    else if (type === "Serialization") manga.info.serialization = text
+                    else false
+                })
+
+                manga.synopsis = $("[itemprop=description]").text().trim();
+
+                content.items.push(manga)
+            }
+
         });
     }
 
-    function treatContent(anime) {
-        removeBlankLinesAndMarkdown(anime)
+    function treatContent(item) {
+        removeBlankLinesAndMarkdown(item)
 
-        function removeBlankLinesAndMarkdown(anime) {
-            for (var key in anime) {
+        function removeBlankLinesAndMarkdown(item) {
+            for (var key in item) {
                 if (key === "name" || key === "synopsis") {
-                    const lines = anime[key].split("\n")
+                    const lines = item[key].split("\n")
 
                     const arrText = lines.filter(line => {
                         if (line.trim().length === 0 || line.trim().startsWith("[")) {
@@ -79,12 +157,12 @@ async function robotText(urlsMyAnimeList) {
 
                     cleanText = arrText.join(" ");
 
-                    anime[key] = cleanText
+                    item[key] = cleanText
                 }
             }
 
-            for (var key in anime.info) {
-                const lines = anime.info[key].split("\n")
+            for (var key in item.info) {
+                const lines = item.info[key].split("\n")
 
                 const arrText = lines.filter(line => {
                     if (line.trim().length === 0) {
@@ -95,17 +173,24 @@ async function robotText(urlsMyAnimeList) {
 
                 cleanText = arrText.toString();
 
-                anime.info[key] = cleanText.replace(/  /g, "")
+                item.info[key] = cleanText.replace(/  /g, "")
             }
         }
     }
 
-    async function translateContent(anime) {
-        anime.synopsis = await translateContent(anime.synopsis)
-        anime.info.genres = await translateContent(anime.info.genres)
-        anime.info.aired = await translateContent(anime.info.aired)
+    async function translateContent(item) {
+        if (content.type === "anime") {
+            item.synopsis = await translateItem(item.synopsis)
+            item.info.genres = await translateItem(item.info.genres)
+            item.info.aired = await translateItem(item.info.aired)
+        } else if (content.type === "manga") {
+            item.synopsis = await translateItem(item.synopsis)
+            item.info.status = await translateItem(item.info.status)
+            item.info.published = await translateItem(item.info.published)
+            item.info.genres = await translateItem(item.info.genres)
+        }
 
-        async function translateContent(text) {
+        async function translateItem(text) {
             return new Promise(async (resolve, reject) => {
                 await googleTranslate.translate(text, 'pt-BR', function (err, translation) {
                     if (err) {

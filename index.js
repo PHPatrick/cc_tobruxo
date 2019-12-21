@@ -1,26 +1,29 @@
 const fs = require("fs");
 
 const robots = {
-    userInput: require("./robots/user-input"),
+    input: require("./robots/input"),
     search: require("./robots/search"),
     text: require("./robots/text"),
     format: require("./robots/format"),
+    state: require("./robots/state")
 };
 
 async function start() {
 
-    const [url, archiveName, limit] = await robots.userInput()
-    const urlsMyAnimeList = await robots.search(url, limit)
-    const animes = await robots.text(urlsMyAnimeList)
-    const content = robots.format(animes)
+    // await robots.input()
+    // await robots.search()
+    // await robots.text()
+    robots.format()
 
-    fs.writeFile(`./archive/${archiveName}.txt`, content,
-        function (erro) {
-            if (erro) {
-                throw erro;
-            }
-            console.log("=========================\nArquivo salvo com sucesso!\n=========================");
-        });
+    // const content = state.load()
+
+    // fs.writeFile(`./content/wp-content.txt`, content.wpContent,
+    //     function (erro) {
+    //         if (erro) {
+    //             throw erro;
+    //         }
+    //         console.log("=========================\nArquivo salvo com sucesso!\n=========================");
+    //     });
 }
 
 start();

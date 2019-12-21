@@ -1,0 +1,160 @@
+<!-- wp:heading -->
+<h2>Sword Art Online</h2>
+<!-- /wp:heading -->
+<!-- wp:image {"align":"wide"} -->
+<figure class="wp-block-image alignwide"><img alt="" /></figure>
+<!-- /wp:image -->
+<!-- wp:list -->
+    <ul>
+        <li><strong>Nome em Inglês: </strong>&nbsp; Sword Art Online<br><strong>Nome em Japonês:</strong>  ソードアート・オンライン</li>
+        <li><strong>Gênero:</strong>&nbsp;AçãoAção, AventuraAventura, FantasiaFantasia, JogoJogo, RomanceRomance</li>
+        <li><strong>Episódios:</strong>&nbsp;25</li>
+        <li><strong>Exibido:</strong>&nbsp;8 de julho de 2012 a 23 de dezembro de 2012</li>
+        <li><strong>Estúdio:</strong>&nbsp;A-1 Pictures</li >
+        <li><strong>Trailer:</strong>&nbsp;Teaser</li >
+        <li><strong>Onde Assistir:</strong>&nbsp;??</li>
+    </ul>
+    <!-- /wp:list -->
+<!-- wp:separator -->
+<hr class="wp-block-separator"/>
+<!-- /wp:separator -->
+
+<!-- wp:paragraph -->
+<p><strong>Sinopse:</strong></p>
+<!-- /wp:paragraph -->
+<!-- wp:paragraph -->
+<p>No ano de 2022, a realidade virtual progrediu aos trancos e barrancos, e um maciço role-playing online chamado Sword Art Online (SAO) é lançado.</p>
+<!-- /wp:paragraph -->
+<!-- wp:paragraph -->
+<p> Com a ajuda da tecnologia "NerveGear", os jogadores podem controlar seus avatares no jogo usando apenas seus próprios pensamentos.</p>
+<!-- /wp:paragraph -->
+<!-- wp:paragraph -->
+<p> Kazuto Kirigaya, apelidado de "Kirito", está entre os poucos sortudos entusiastas que colocam as mãos no primeiro carregamento do jogo.</p>
+<!-- /wp:paragraph -->
+<!-- wp:paragraph -->
+<p> Ele entra para encontrar-se, com outros dez mil, no mundo cênico e elaborado de Aincrad, cheio de armas medievais fantásticas e monstros horríveis.</p>
+<!-- /wp:paragraph -->
+<!-- wp:paragraph -->
+<p> No entanto, em uma virada cruel dos eventos, os jogadores logo percebem que não podem sair; o criador do jogo os prendeu em seu novo mundo até que eles completem todos os cem níveis do jogo.</p>
+<!-- /wp:paragraph -->
+<!-- wp:paragraph -->
+<p> Para escapar de Aincrad, Kirito agora terá que interagir e cooperar com seus colegas jogadores.</p>
+<!-- /wp:paragraph -->
+<!-- wp:paragraph -->
+<p> Alguns são aliados, enquanto outros são inimigos, como Asuna Yuuki, que comanda o grupo que tenta escapar do jogo cruel.</p>
+<!-- /wp:paragraph -->
+<!-- wp:paragraph -->
+<p> Para piorar, Sword Art Online não é só diversão e jogos: se eles morrem em Aincrad, eles morrem na vida real.</p>
+<!-- /wp:paragraph -->
+<!-- wp:paragraph -->
+<p> Kirito deve se adaptar à sua nova realidade, lutar por sua sobrevivência e, esperançosamente, se libertar de seu inferno virtual.</p>
+<!-- /wp:paragraph -->
+<!-- wp:separator {"color":"quaternary"} -->
+<hr class="wp-block-separator has-text-color has-background has-quaternary-background-color has-quaternary-color"/>
+<!-- /wp:separator --><!-- wp:heading -->
+<h2>Sword Art Online</h2>
+<!-- /wp:heading -->
+<!-- wp:image {"align":"wide"} -->
+<figure class="wp-block-image alignwide"><img alt="" /></figure>
+<!-- /wp:image -->
+<!-- wp:list -->
+    <ul>
+        <li><strong>Nome em Inglês: </strong>&nbsp; Sword Art Online<br><strong>Nome em Japonês:</strong>  ソードアート・オンライン</li>
+        <li><strong>Gênero:</strong>&nbsp;AçãoAção, AventuraAventura, FantasiaFantasia, JogoJogo, RomanceRomance</li>
+        <li><strong>Episódios:</strong>&nbsp;25</li>
+        <li><strong>Exibido:</strong>&nbsp;8 de julho de 2012 a 23 de dezembro de 2012</li>
+        <li><strong>Estúdio:</strong>&nbsp;A-1 Pictures</li >
+        <li><strong>Trailer:</strong>&nbsp;Teaser</li >
+        <li><strong>Onde Assistir:</strong>&nbsp;??</li>
+    </ul>
+    <!-- /wp:list -->
+<!-- wp:separator -->
+<hr class="wp-block-separator"/>
+<!-- /wp:separator -->
+
+<!-- wp:paragraph -->
+<p><strong>Sinopse:</strong></p>
+<!-- /wp:paragraph -->
+<!-- wp:paragraph -->
+<p>No ano de 2022, a realidade virtual progrediu aos trancos e barrancos, e um maciço role-playing online chamado Sword Art Online (SAO) é lançado.</p>
+<!-- /wp:paragraph -->
+<!-- wp:paragraph -->
+<p> Com a ajuda da tecnologia "NerveGear", os jogadores podem controlar seus avatares no jogo usando apenas seus próprios pensamentos.</p>
+<!-- /wp:paragraph -->
+<!-- wp:paragraph -->
+<p> Kazuto Kirigaya, apelidado de "Kirito", está entre os poucos sortudos entusiastas que colocam as mãos no primeiro carregamento do jogo.</p>
+<!-- /wp:paragraph -->
+<!-- wp:paragraph -->
+<p> Ele entra para encontrar-se, com outros dez mil, no mundo cênico e elaborado de Aincrad, cheio de armas medievais fantásticas e monstros horríveis.</p>
+<!-- /wp:paragraph -->
+<!-- wp:paragraph -->
+<p> No entanto, em uma virada cruel dos eventos, os jogadores logo percebem que não podem sair; o criador do jogo os prendeu em seu novo mundo até que eles completem todos os cem níveis do jogo.</p>
+<!-- /wp:paragraph -->
+<!-- wp:paragraph -->
+<p> Para escapar de Aincrad, Kirito agora terá que interagir e cooperar com seus colegas jogadores.</p>
+<!-- /wp:paragraph -->
+<!-- wp:paragraph -->
+<p> Alguns são aliados, enquanto outros são inimigos, como Asuna Yuuki, que comanda o grupo que tenta escapar do jogo cruel.</p>
+<!-- /wp:paragraph -->
+<!-- wp:paragraph -->
+<p> Para piorar, Sword Art Online não é só diversão e jogos: se eles morrem em Aincrad, eles morrem na vida real.</p>
+<!-- /wp:paragraph -->
+<!-- wp:paragraph -->
+<p> Kirito deve se adaptar à sua nova realidade, lutar por sua sobrevivência e, esperançosamente, se libertar de seu inferno virtual.</p>
+<!-- /wp:paragraph -->
+<!-- wp:separator {"color":"quaternary"} -->
+<hr class="wp-block-separator has-text-color has-background has-quaternary-background-color has-quaternary-color"/>
+<!-- /wp:separator --><!-- wp:heading -->
+<h2>Sword Art Online</h2>
+<!-- /wp:heading -->
+<!-- wp:image {"align":"wide"} -->
+<figure class="wp-block-image alignwide"><img alt="" /></figure>
+<!-- /wp:image -->
+<!-- wp:list -->
+    <ul>
+        <li><strong>Nome em Inglês: </strong>&nbsp; Sword Art Online<br><strong>Nome em Japonês:</strong>  ソードアート・オンライン</li>
+        <li><strong>Gênero:</strong>&nbsp;AçãoAção, AventuraAventura, FantasiaFantasia, JogoJogo, RomanceRomance</li>
+        <li><strong>Episódios:</strong>&nbsp;25</li>
+        <li><strong>Exibido:</strong>&nbsp;8 de julho de 2012 a 23 de dezembro de 2012</li>
+        <li><strong>Estúdio:</strong>&nbsp;A-1 Pictures</li >
+        <li><strong>Trailer:</strong>&nbsp;Teaser</li >
+        <li><strong>Onde Assistir:</strong>&nbsp;??</li>
+    </ul>
+    <!-- /wp:list -->
+<!-- wp:separator -->
+<hr class="wp-block-separator"/>
+<!-- /wp:separator -->
+
+<!-- wp:paragraph -->
+<p><strong>Sinopse:</strong></p>
+<!-- /wp:paragraph -->
+<!-- wp:paragraph -->
+<p>No ano de 2022, a realidade virtual progrediu aos trancos e barrancos, e um maciço role-playing online chamado Sword Art Online (SAO) é lançado.</p>
+<!-- /wp:paragraph -->
+<!-- wp:paragraph -->
+<p> Com a ajuda da tecnologia "NerveGear", os jogadores podem controlar seus avatares no jogo usando apenas seus próprios pensamentos.</p>
+<!-- /wp:paragraph -->
+<!-- wp:paragraph -->
+<p> Kazuto Kirigaya, apelidado de "Kirito", está entre os poucos sortudos entusiastas que colocam as mãos no primeiro carregamento do jogo.</p>
+<!-- /wp:paragraph -->
+<!-- wp:paragraph -->
+<p> Ele entra para encontrar-se, com outros dez mil, no mundo cênico e elaborado de Aincrad, cheio de armas medievais fantásticas e monstros horríveis.</p>
+<!-- /wp:paragraph -->
+<!-- wp:paragraph -->
+<p> No entanto, em uma virada cruel dos eventos, os jogadores logo percebem que não podem sair; o criador do jogo os prendeu em seu novo mundo até que eles completem todos os cem níveis do jogo.</p>
+<!-- /wp:paragraph -->
+<!-- wp:paragraph -->
+<p> Para escapar de Aincrad, Kirito agora terá que interagir e cooperar com seus colegas jogadores.</p>
+<!-- /wp:paragraph -->
+<!-- wp:paragraph -->
+<p> Alguns são aliados, enquanto outros são inimigos, como Asuna Yuuki, que comanda o grupo que tenta escapar do jogo cruel.</p>
+<!-- /wp:paragraph -->
+<!-- wp:paragraph -->
+<p> Para piorar, Sword Art Online não é só diversão e jogos: se eles morrem em Aincrad, eles morrem na vida real.</p>
+<!-- /wp:paragraph -->
+<!-- wp:paragraph -->
+<p> Kirito deve se adaptar à sua nova realidade, lutar por sua sobrevivência e, esperançosamente, se libertar de seu inferno virtual.</p>
+<!-- /wp:paragraph -->
+<!-- wp:separator {"color":"quaternary"} -->
+<hr class="wp-block-separator has-text-color has-background has-quaternary-background-color has-quaternary-color"/>
+<!-- /wp:separator -->

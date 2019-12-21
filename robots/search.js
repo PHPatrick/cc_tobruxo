@@ -1,14 +1,19 @@
 const request = require("request-promise");
 const cheerio = require("cheerio");
 const readline = require("readline-sync");
+const state = require("./state")
 
-async function robotSearch(url, limit) {
-    const urlsByMyAnimeList = []
+async function robotSearch() {
+    console.log('\n> [search-robot] Start...\n')
+    const content = state.load()
+    content.urlsItems = []
 
-    await getUrlByMyAnimeList(url, limit)
-    removeUnwanted(urlsByMyAnimeList)
+    await getUrlByMyAnimeList(content.urlType, content.limit)
+    await getInformationForUrls(content.urlType, content.limit)
+    removeUnwanted(content)
 
-    return urlsByMyAnimeList
+    state.save(content)
+    console.log('\n> [search-robot] Stop...\n')
 
     async function getUrlByMyAnimeList(url, limit) {
         await request(url, function (err, res, body) {
@@ -20,19 +25,28 @@ async function robotSearch(url, limit) {
             $(".link-title").each(function () {
                 if (count < limit) {
                     let thisUrl = $(this).attr("href").replace('Ψ', '').replace('★', '')
-                    urlsByMyAnimeList.push(thisUrl)
+                    content.urlsItems.push(thisUrl)
+                    console.log(`\n> [search-robot] Adicionando URL: ${thisUrl}`)
                     count++
                 }
             })
+        })
+    }
+
+    async function getInformationForUrls(url, limit) {
+        await request(url, function (err, res, body) {
+            if (err) console.log('Erro: ' + err)
+
+            const $ = cheerio.load(body)
 
             countInfo = 0
             score = []
             $(".information").each(function () {
                 if (countInfo < limit) {
                     let text = $(this).find(".info").text().trim()
-                    if (text.indexOf("TV") === -1) {
-                        console.log(`===========================\nUma URL foi removida por nao se encaixar no requisito "TV Series".\nURL removida: ${urlsByMyAnimeList[countInfo]}\n===========================`)
-                        urlsByMyAnimeList.splice(countInfo, 1)
+                    if (text.indexOf("TV") === -1 && content.type === "anime") {
+                        console.log(`\n> [search-robot] ...\n===========================\nUma URL foi removida por nao se encaixar no requisito "TV Series".\nURL removida: ${urlsItems[countInfo]}\n===========================`)
+                        content.urlsItems.splice(countInfo, 1)
                     } else {
                         let release = $(this).find(".info").text().trim().split(",")[1]
                         let scoreMyAnimeList = $(this).find(".score").text().trim()
@@ -47,50 +61,48 @@ async function robotSearch(url, limit) {
                 }
             })
 
-            for (let i = 0; i < urlsByMyAnimeList.length; i++) {
-                urlsByMyAnimeList[i] = `${score[i]}::::${urlsByMyAnimeList[i]}`
+            for (let i = 0; i < content.urlsItems.length; i++) {
+                content.urlsItems[i] = `${score[i]}::::${content.urlsItems[i]}`
             }
 
-            urlsByMyAnimeList.sort().reverse()
+            content.urlsItems.sort().reverse()
         })
     }
 
-    function removeUnwanted(urlsByMyAnimeList) {
-        let animeNames = []
-        for (let i = 0; i < urlsByMyAnimeList.length; i++) {
-            let arrName = urlsByMyAnimeList[i].split("/")
+    function removeUnwanted(content) {
+        let itemsNames = []
+        for (let i = 0; i < content.urlsItems.length; i++) {
+            let arrName = content.urlsItems[i].split("/")
             let thisName = arrName[arrName.length - 1].replace(/_/g, ' ')
-            animeNames.push(thisName)
+            itemsNames.push(thisName)
         }
 
-        questionUnwanted(urlsByMyAnimeList, animeNames)
+        listItemsNames(itemsNames)
 
-        for (let i = 0; i < urlsByMyAnimeList.length; i++) {
-            urlsByMyAnimeList[i] = urlsByMyAnimeList[i].split("::::")[1]
+        let itemUnwanted = readline.question('> [search-robot] ...\nDeseja remover algum anime?\nDigite o numero correspondente e tecle ENTER (para continuar digite "continue" e tecle ENTER): ');
+
+        while (itemUnwanted != "continue") {
+            console.log(`\n> [search-robot] ${itemsNames[itemUnwanted - 1, 1]} - [ REMOVIDO ]`)
+            content.urlsItems.splice(itemUnwanted - 1, 1)
+            itemsNames.splice(itemUnwanted - 1, 1)
+
+            listItemsNames(itemsNames)
+
+            itemUnwanted = readline.question('> [search-robot] ...\nDeseja remover algum anime?\nDigite o numero correspondente e tecle ENTER (para continuar digite "continue" e tecle ENTER): ');
         }
 
-        function questionUnwanted(urlsByMyAnimeList, animeNames) {
-            listAnimeName(animeNames)
-
-            let animeUnwanted = readline.question('-------------------\nDeseja remover algum anime?\nDigite o numero correspondente e tecle ENTER (para continuar digite "continue" e tecle ENTER): ');
-
-            while (animeUnwanted != "continue") {
-                urlsByMyAnimeList.splice(animeUnwanted - 1, 1)
-                animeNames.splice(animeUnwanted - 1, 1)
-
-                listAnimeName(animeNames)
-
-                animeUnwanted = readline.question('-------------------\nDeseja remover algum anime?\nDigite o numero correspondente e tecle ENTER (para continuar digite "continue" e tecle ENTER): ');
-            }
+        for (let i = 0; i < content.urlsItems.length; i++) {
+            content.urlsItems[i] = content.urlsItems[i].split("::::")[1]
         }
+    }
 
-        function listAnimeName(animeNames) {
-            console.log("\n-------------------")
-            for (let i = 0; i < animeNames.length; i++) {
-                console.log(`${i+1} - ${animeNames[i]}\n`)
-            }
-            console.log("-------------------\n")
+
+    function listItemsNames(itemsNames) {
+        console.log("\n> [search-robot] ...\n-------------------\n")
+        for (let i = 0; i < itemsNames.length; i++) {
+            console.log(`${i+1} - ${itemsNames[i]}\n`)
         }
+        console.log("-------------------\n")
     }
 
 }
