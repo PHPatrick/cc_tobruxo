@@ -1,0 +1,19 @@
+{
+    "name": "cc_tobruxo",
+    "version": "3.0.0",
+    "description": "Create Content For ToBruxo",
+    "main": "index.js",
+    "scripts": {
+        "start": "node index.js"
+    },
+    "dependencies": {
+        "cheerio": "^1.0.0-rc.3",
+        "gm": "^1.23.1",
+        "google-translate": "^3.0.0",
+        "googleapis": "^46.0.0",
+        "image-downloader": "^3.5.0",
+        "readline-sync": "^1.4.10",
+        "request": "^2.88.0",
+        "request-promise": "^4.2.5"
+    }
+}
