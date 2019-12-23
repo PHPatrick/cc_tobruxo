@@ -12,6 +12,5 @@ O que você precisa para instalar o software e como instalá-lo
 Node.JS
 ImageMagick
 ```
-[Node.JS](https://nodejs.org/en/)
-
-[ImageMagick](https://imagemagick.org/)
+* [Node.JS](https://nodejs.org/en/)
+* [ImageMagick](https://imagemagick.org/)
