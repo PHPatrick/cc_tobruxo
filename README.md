@@ -9,6 +9,8 @@ Essas instruções fornecerão uma cópia do projeto em execução na sua máqui
 O que você precisa para instalar o software e como instalá-lo
 
 ```
+Node.JS
+ImageMagick
+```
 [Node.JS](https://nodejs.org/en/)
 [ImageMagick](https://imagemagick.org/)
-```
