@@ -1,3 +1,4 @@
+const fs = require("fs");
 const state = require("./state")
 
 function robotFormat() {
@@ -5,6 +6,8 @@ function robotFormat() {
     const content = state.load()
 
     generateStructure(content.items)
+    generateStructuredData(content.items)
+
     console.log("[robot-format] Formatação concluida")
 
     state.save(content)
@@ -20,7 +23,9 @@ function robotFormat() {
         for (let i = 0; i < item.length; i++) {
             console.log(`\n> [format-robot] [${i+1}] [${item[i].name}] Formatando...\n`)
             const title = `<!-- wp:heading -->\n<h2>${item[i].name}</h2>\n<!-- /wp:heading -->`
-            const image = `<!-- wp:image {"align":"wide"} -->\n<figure class="wp-block-image alignwide"><img alt="" /></figure>\n<!-- /wp:image -->`
+            const image = `<!-- wp:image {"align":"wide","sizeSlug":"large"} -->
+<figure class="wp-block-image alignwide size-large"><img src="${item[i].imgPath}" alt="${item[i].name}"/></figure>
+<!-- /wp:image -->`
 
             if (content.type === "anime") {
                 list = animeInfoStructure(item[i])
@@ -77,8 +82,8 @@ function robotFormat() {
         <li><strong>Gênero:</strong>&nbsp;${item.info.genres}</li>
         <li><strong>Episódios:</strong>&nbsp;${item.info.episodes}</li>
         <li><strong>Exibido:</strong>&nbsp;${item.info.aired}</li>
-        <li><strong>Estúdio:</strong>&nbsp;${item.info.studios}</li >
-        <li><strong>Trailer:</strong>&nbsp;${item.info.trailer}</li >
+        <li><strong>Estúdio:</strong>&nbsp;${item.info.studios}</li>
+        <li><strong>Trailer:</strong>&nbsp;${item.info.trailer}</li>
         <li><strong>Onde Assistir:</strong>&nbsp;${item.info.watch}</li>
     </ul>
     <!-- /wp:list -->`
@@ -93,10 +98,24 @@ function robotFormat() {
         <li><strong>Capítulos:</strong>&nbsp;${item.info.chapters}</li>
         <li><strong>Publicadas:</strong>&nbsp;${item.info.published}</li>
         <li><strong>Autor(s):</strong>&nbsp;${item.info.authors}</li>
-        <li><strong>Estúdio:</strong>&nbsp;${item.info.studios}</li >
-        <li><strong>Serialização:</strong>&nbsp;${item.info.serialization}</li >
+        <li><strong>Estúdio:</strong>&nbsp;${item.info.studios}</li>
+        <li><strong>Serialização:</strong>&nbsp;${item.info.serialization}</li>
     </ul>
     <!-- /wp:list -->`
+    }
+
+    function generateStructuredData(items) {
+        const openTagScript = '<script type="application/ld+json">'
+        const closeTagScript = '</script>'
+        let arrStructuredData = []
+
+        for (let i = 0; i < items.length; i++) {
+            arrStructuredData.push(items[i].structuredData)
+        }
+
+        const structuredDataContent = openTagScript + JSON.stringify(arrStructuredData) + closeTagScript
+
+        fs.writeFileSync(`./content/${content.dirName}/dados-estruturados.txt`, structuredDataContent)
     }
 
 }

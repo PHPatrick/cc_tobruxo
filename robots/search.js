@@ -1,3 +1,4 @@
+// process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0';
 const request = require("request-promise");
 const cheerio = require("cheerio");
 const readline = require("readline-sync");
@@ -24,7 +25,7 @@ async function robotSearch() {
             count = 0
             $(".link-title").each(function () {
                 if (count < limit) {
-                    let thisUrl = $(this).attr("href").replace('Ψ', '').replace('★', '')
+                    let thisUrl = $(this).attr("href").replace('Ψ', '').replace('★', '').replace('√', '')
                     content.urlsItems.push(thisUrl)
                     console.log(`\n> [search-robot] Adicionando URL: ${thisUrl}`)
                     count++

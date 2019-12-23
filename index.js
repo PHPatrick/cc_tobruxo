@@ -14,12 +14,12 @@ async function start() {
     await robots.input()
     await robots.search()
     await robots.text()
-    // robots.image()
+    await robots.image()
     robots.format()
 
     const content = robots.state.load()
 
-    fs.writeFile(`./content/wp-content.txt`, content.wpContent,
+    fs.writeFile(`./content/${content.dirName}/wp-content.txt`, content.wpContent,
         function (erro) {
             if (erro) {
                 throw erro;

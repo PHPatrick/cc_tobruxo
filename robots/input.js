@@ -2,17 +2,19 @@ const readline = require("readline-sync");
 const cheerio = require("cheerio");
 const request = require("request-promise");
 const state = require("./state")
+const fs = require('fs');
 
 async function robotInput() {
     console.log('\n> [input-robot] Start...\n')
     const content = {}
-    askType()
-    askLimit()
+    await askType(content)
+    askLimit(content)
+    createDir(content)
 
     state.save(content)
     console.log('\n> [input-robot] Stop...\n')
 
-    async function askType() {
+    async function askType(content) {
         const prefixes = ["Animes (Genero)", "Animes (Temporada)", "Manga (Genero)"];
 
         const selectedPrefix = readline.keyInSelect(
@@ -23,12 +25,15 @@ async function robotInput() {
         if (selectedPrefix === 0) {
             askAnimeGenres()
             content.type = "anime"
+            content.subType = "genres"
         } else if (selectedPrefix == 1) {
             await askAnimeSeason()
             content.type = "anime"
+            content.subType = "season"
         } else if (selectedPrefix == 2) {
             askMangaGenres()
             content.type = "manga"
+            content.subType = "genres"
         }
     }
 
@@ -41,9 +46,10 @@ async function robotInput() {
         }
         console.log("\n")
 
-        const selectedGenre = readline.question("> [input-robot] Escolha um genero: ");
+        const selectedPrefix = readline.question("> [input-robot] Escolha um genero: ");
 
-        content.urlType = `https://myanimelist.net/anime/genre/${selectedGenre}/`
+        content.changeSubType = prefixes[selectedPrefix - 1]
+        content.urlType = `https://myanimelist.net/anime/genre/${selectedPrefix}/`
     }
 
     async function askAnimeSeason() {
@@ -73,6 +79,7 @@ async function robotInput() {
             let season = prefixes[selectedPrefix]
             let seasonUrl = `${season.split(" ")[1]}/${season.toLowerCase().split(" ")[0]}`
 
+            content.changeSubType = prefixes[selectedPrefix]
             content.urlType = `https://myanimelist.net/anime/season/${seasonUrl}`
         })
     }
@@ -86,16 +93,30 @@ async function robotInput() {
         }
         console.log("\n")
 
-        const selectedGenre = readline.question("> [input-robot] Escolha um genero: ");
+        const selectedPrefix = readline.question("> [input-robot] Escolha um genero: ");
 
-        content.urlType = `https://myanimelist.net/manga/genre/${selectedGenre}/`
+        content.changeSubType = prefixes[selectedPrefix - 1]
+        content.urlType = `https://myanimelist.net/manga/genre/${selectedPrefix}/`
     }
 
-    function askLimit() {
+    function askLimit(content) {
         const type = content.urlType.indexOf("manga") !== -1 ? "mangas" : "animes"
         let itemsLimit = readline.question(`\n> [input-robot] Quantidade de ${type}: `);
 
         content.limit = itemsLimit
+    }
+
+    function createDir(content) {
+        const dirName = `${content.type}_${content.subType}-${content.changeSubType.toLowerCase()}`
+        content.dirName = dirName
+
+        const dir = `./content/${content.dirName}`;
+        if (!fs.existsSync(dir)) {
+            fs.mkdirSync(dir);
+        } else {
+            console.log(`\n> [input-robot] Uma pasta referente a este conteudo (${content.dirName}) ja existe, para criacao de um novo conteudo sobre este assunto, sera necessario excluir a pasta "${content.dirName}" e executar o programa novamente.\nCaminho: ./content/${content.dirName}\n`)
+            process.exit(0)
+        }
     }
 }
 

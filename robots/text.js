@@ -45,7 +45,17 @@ async function robotText() {
                         trailer: "Teaser",
                         watch: "??"
                     },
-                    synopsis: ""
+                    synopsis: "",
+                    analyze: "",
+                    images: "",
+                    imgPath: "",
+                    structuredData: {
+                        '@context': "http://schema.org",
+                        '@type': "TVSeries",
+                        actor: [],
+                        name: "",
+                        numberOfEpisodes: ""
+                    }
                 }
 
                 anime.url = url
@@ -76,11 +86,31 @@ async function robotText() {
 
                 })
 
-                anime.info.genres.replace()
-
                 anime.synopsis = $("[itemprop=description]").text().trim();
-                anime.trailer = "Teaser"
-                anime.watch = "??"
+                anime.imgPath = ""
+
+                if ($(".video-promotion a").attr("href")) {
+                    anime.info.trailer = `<a href="${$(".video-promotion a").attr("href")}" target="_blank" rel="noreferrer noopener" aria-label="Teaser (abre numa nova aba)">Teaser</a>`
+                } else {
+                    anime.info.trailer = 'Teaser'
+                }
+                anime.info.watch = "??"
+
+                $(".detail-characters-list .borderClass a").each(function () {
+                    const clearActor = $(this).text().trim().replace("\n", "").replace(/ /g, "")
+                    if (clearActor.length !== 0) {
+                        const arrActor = clearActor.split(",")
+                        const actor = {
+                            '@type': "Person",
+                            name: arrActor.join(", ")
+                        }
+                        anime.structuredData.actor.push(actor)
+                    }
+                })
+
+                anime.structuredData.name = anime.name
+                anime.structuredData.numberOfEpisodes = anime.info.episodes.replace("\n", "").replace(/ /g, "")
+
                 content.items.push(anime)
             }
 
@@ -99,7 +129,16 @@ async function robotText() {
                         authors: "",
                         serialization: ""
                     },
-                    synopsis: ""
+                    synopsis: "",
+                    analyze: "",
+                    images: "",
+                    imgPath: "",
+                    structuredData: {
+                        "@context": "http://schema.org",
+                        "@type": "",
+                        "actor": [],
+                        "name": ""
+                    }
                 }
 
                 manga.url = url
@@ -133,6 +172,7 @@ async function robotText() {
                 })
 
                 manga.synopsis = $("[itemprop=description]").text().trim();
+                manga.imgPath = ""
 
                 content.items.push(manga)
             }
