@@ -40,8 +40,8 @@ build/Release
 # Dependency directories
 node_modules/
 jspm_packages/
-keys/
-content/
+keys/*
+content/*
 
 # TypeScript v1 declaration files
 typings/
@@ -105,4 +105,4 @@ dist
 # TernJS port file
 .tern-port
 
-content.json
+./content.json
