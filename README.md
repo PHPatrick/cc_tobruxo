@@ -28,6 +28,10 @@ brew install ghostscript
 
 ### Linux
 
+* [Documentação oficial](https://imagemagick.org/script/download.php)
+
+------
+
 #### Testando
 ````
 node -v
