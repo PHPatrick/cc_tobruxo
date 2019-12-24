@@ -11,6 +11,14 @@ O que você precisa para instalar o software e como instalá-lo
 * [ImageMagick](https://imagemagick.org/)
 
 
+### Instalando ImageMagick
+
+#### Windows
+
+#### MacOS
+
+#### Linux
+
 #### Testando
 ````
 node -v
