@@ -18,8 +18,7 @@ node -v
 ````
 convert -version
 ````
-
-
+------
 ### API's
 * [Cloud Translation API](https://cloud.google.com/translate/docs/reference/rest/)
 * [Custom Search API](https://developers.google.com/custom-search/v1/overview)
