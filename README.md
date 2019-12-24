@@ -29,8 +29,9 @@ convert -version
 Após pegar a API key do Cloud Translation e Custom Search, e o Search Engine ID adicione-os nos arquivos da pasta ```/keys```
 
 Caso esteja com dificuldades, assista esses vídeos, mostrando passo-a-passo para adquirir as API Keys e o Search Engine ID.
-* [Video tutorial API KEY Cloud Translation](https://cloud.google.com/translate/docs/reference/rest/)
-* [Video tutorial API KEY Custom Search & ID Search Engine](https://developers.google.com/custom-search/v1/overview)
+* [Video tutorial: API KEY Cloud Translation](https://youtu.be/nIVLmaavks0)
+* [Video tutorial: API KEY Custom Search & ID Search Engine](https://youtu.be/quGA-U5B0iU)
+* [Video tutorial: Testando o funcionamento das API's](https://youtu.be/8q7qLhwZqzw)
 
 ------
 ### Instalando
@@ -60,3 +61,5 @@ npm start
 ````
 
 E responder as questões que irão ser perguntadas para a conclusão da criação do artigo.
+
+* [Vídeo mostrando a utilização do programa](https://youtu.be/D07xN42y4sw)
