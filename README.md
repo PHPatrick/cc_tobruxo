@@ -27,6 +27,9 @@ convert -version
 * [Search Engine ID](https://cse.google.com/cse/all)
 
 Após pegar a API key do Cloud Translation e Custom Search, e o Search Engine ID adicione-os nos arquivos da pasta ```/keys```
+Caso esteja com dificuldades, assista esses vídeos, mostrando passo-a-passo para adquirir as API Keys e o Search Engine ID.
+* [Cloud Translation API](https://cloud.google.com/translate/docs/reference/rest/)
+* [Custom Search API & Search Engine ID](https://developers.google.com/custom-search/v1/overview)
 
 ------
 ### Instalando
