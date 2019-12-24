@@ -23,14 +23,14 @@ Uma série de exemplos passo a passo que mostram como obter um ambiente de desen
 
 Diga qual será o passo
 
-`` ``
-Dê o exemplo
-`` ``
+````
+git clone https://github.com/gabzedine/cc_tobruxo.git
+````
 
 E repita
 
-`` ``
-até terminar
-`` ``
+````
+npm install
+````
 
 Termine com um exemplo de como retirar alguns dados do sistema ou usá-los para uma pequena demonstração
