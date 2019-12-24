@@ -4,18 +4,18 @@
 
 Essas instruções fornecerão uma cópia do projeto em execução na sua máquina local para fins de desenvolvimento e teste.
 
-### Pré-requesitos
+## Pré-requesitos
 
 O que você precisa para instalar o software e como instalá-lo
 * [Node.JS](https://nodejs.org/en/)
 * [ImageMagick](https://imagemagick.org/)
 
 
-### Instalando ImageMagick
+## Instalando ImageMagick
 
-#### Windows
+### Windows
 
-#### MacOS
+### MacOS
 ```
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 ```
@@ -26,7 +26,7 @@ brew install imagemagick
 brew install ghostscript
 ```
 
-#### Linux
+### Linux
 
 #### Testando
 ````
