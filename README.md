@@ -14,5 +14,5 @@ O que você precisa para instalar o software e como instalá-lo
 * [Cloud Translation API](https://cloud.google.com/translate/docs/reference/rest/)
 * [Custom Search API](https://developers.google.com/custom-search/v1/overview)
 
-#### Pré-requesitos
+#### Pré-requesitos para API's
 * [Search Engine ID](https://cse.google.com/cse/all)
