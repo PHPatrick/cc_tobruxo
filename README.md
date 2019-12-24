@@ -16,3 +16,21 @@ O que você precisa para instalar o software e como instalá-lo
 
 #### Pré-requesitos para API's
 * [Search Engine ID](https://cse.google.com/cse/all)
+
+### Instalando
+
+Uma série de exemplos passo a passo que mostram como obter um ambiente de desenvolvimento em execução
+
+Diga qual será o passo
+
+`` ``
+Dê o exemplo
+`` ``
+
+E repita
+
+`` ``
+até terminar
+`` ``
+
+Termine com um exemplo de como retirar alguns dados do sistema ou usá-los para uma pequena demonstração
