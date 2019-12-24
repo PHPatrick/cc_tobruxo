@@ -35,18 +35,28 @@ Caso esteja com dificuldades, assista esses vídeos, mostrando passo-a-passo par
 ------
 ### Instalando
 
-Uma série de exemplos passo a passo que mostram como obter um ambiente de desenvolvimento em execução
+Primeiramente, clone o repositório em sua máquina.
 
-Diga qual será o passo
+Comando para clonar:
 
 ````
 git clone https://github.com/gabzedine/cc_tobruxo.git
 ````
 
-E repita
+Após isso, acesse o repositório em sua máquina, e execute o seguinte comando:
 
 ````
 npm install
 ````
 
-Termine com um exemplo de como retirar alguns dados do sistema ou usá-los para uma pequena demonstração
+Este comando irá instalar todas as dependências necessárias para execução do programa
+
+### Iniciando
+
+Para iniciar o programa, basta utilizar o comando:
+
+````
+npm start
+````
+
+E responder as questões que irão ser perguntadas para a conclusão da criação do artigo.
