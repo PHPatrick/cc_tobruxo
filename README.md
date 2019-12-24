@@ -25,7 +25,7 @@ convert -version
 #### Pré-requesitos para API's
 * [Search Engine ID](https://cse.google.com/cse/all)
 
-Após pegar a API key do Cloud Translation e Custom Search, e o Search Engine ID adicione-os nos arquivos da pasta ```/keys
+Após pegar a API key do Cloud Translation e Custom Search, e o Search Engine ID adicione-os nos arquivos da pasta ```/keys```
 
 ### Instalando
 
