@@ -10,6 +10,7 @@ O que você precisa para instalar o software e como instalá-lo
 * [Node.JS](https://nodejs.org/en/)
 * [ImageMagick](https://imagemagick.org/)
 
+
 #### Testando
 ````
 node -v
@@ -17,6 +18,7 @@ node -v
 ````
 convert -version
 ````
+
 
 ### API's
 * [Cloud Translation API](https://cloud.google.com/translate/docs/reference/rest/)
@@ -26,6 +28,7 @@ convert -version
 * [Search Engine ID](https://cse.google.com/cse/all)
 
 Após pegar a API key do Cloud Translation e Custom Search, e o Search Engine ID adicione-os nos arquivos da pasta ```/keys```
+
 
 ### Instalando
 
