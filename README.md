@@ -36,7 +36,7 @@ brew install ghostscript
 
 ### Linux
 
-* [Documentação oficial](https://imagemagick.org/script/download.php)
+* [Documentação oficial ImagineMagick para Unix](https://imagemagick.org/script/download.php#unix)
 
 ------
 
