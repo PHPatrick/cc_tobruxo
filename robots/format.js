@@ -24,7 +24,7 @@ function robotFormat() {
             console.log(`\n> [format-robot] [${i+1}] [${item[i].name}] Formatando...\n`)
             const title = `<!-- wp:heading -->\n<h2>${item[i].name}</h2>\n<!-- /wp:heading -->`
             const image = `<!-- wp:image {"align":"wide","sizeSlug":"large"} -->
-<figure class="wp-block-image alignwide size-large"><img src="${item[i].imgPath}" alt="${item[i].name}"/></figure>
+<figure class="wp-block-image alignwide size-large"><img src="${item[i].imgPath}?" alt="${item[i].name}"/></figure>
 <!-- /wp:image -->`
 
             if (content.type === "anime") {
@@ -53,26 +53,25 @@ function robotFormat() {
     }
 
     function generateTableNames(item) {
-        let head = `<!-- wp:table {"hasFixedLayout":true,"className":"is-style-regular"} -->
-<figure class="wp-block-table is-style-regular">
-    <table class="has-fixed-layout">
-        <thead>
-            <tr>
-                <th class="has-text-align-center" data-align="center"> Nomes em Inglês </th>
-                <th class="has-text-align-left" data-align="left"> <strong>Nomes em Japonês</strong></th>
-            </tr>
-        </thead>
-        <tbody>`
+        let head = `<!-- wp:columns --><div class="wp-block-columns"><!-- wp:column --><div class="wp-block-column"><!-- wp:paragraph {"align":"left"} --><p class="has-text-align-left"><strong>Nome em inglês</strong></p><!-- /wp:paragraph --><!-- wp:list {"ordered":true} --><ol>`
 
-        let names = ""
+        let thisNameEnglish = []
         for (let i = 0; i < item.length; i++) {
-            let verifyNameJapanese = item[i].info.nameEnglish.indexOf(item[i].name) !== -1 ? "----" : item[i].name
-            names = names + `<tr><td class="has-text-align-center" data-align="center"><strong>${i + 1}.</strong> ${item[i].info.nameEnglish}</td><td class="has-text-align-left" data-align="left">${verifyNameJapanese}</td></tr>`
+            let verifyExist = item[i].info.nameEnglish.length === 0 ? "---" : item[i].info.nameEnglish
+            thisNameEnglish.push(`<li>${verifyExist}</li>`)
         }
 
-        let foot = `</tbody></table></figure><!-- /wp:table -->`
+        let mid = `</ol><!-- /wp:list --></div><!-- /wp:column --><!-- wp:column --><div class="wp-block-column"><!-- wp:paragraph {"align":"left"} --><p class="has-text-align-left"><strong>Nome em japonês</strong></p><!-- /wp:paragraph --><!-- wp:list {"ordered":true} --><ol>`
 
-        return head + names + foot
+        let thisNameJapanese = []
+        for (let i = 0; i < item.length; i++) {
+            let verifyNameJapanese = item[i].info.nameEnglish.indexOf(item[i].name) !== -1 ? "---" : item[i].name
+            thisNameJapanese.push(`<li>${verifyNameJapanese}</li>`)
+        }
+
+        let foot = `</ol><!-- /wp:list --></div><!-- /wp:column --></div><!-- /wp:columns --><!-- wp:separator --><hr class="wp-block-separator"/><!-- /wp:separator -->`
+
+        return head + thisNameEnglish.join("\n") + mid + thisNameJapanese.join("\n") + foot
     }
 
     function animeInfoStructure(item) {

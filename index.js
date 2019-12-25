@@ -11,10 +11,10 @@ const robots = {
 
 async function start() {
 
-    await robots.input()
-    await robots.search()
-    await robots.text()
-    await robots.image()
+    // await robots.input()
+    // await robots.search()
+    // await robots.text()
+    // await robots.image()
     robots.format()
 
     const content = robots.state.load()
