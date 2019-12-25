@@ -10,6 +10,7 @@ async function robotSearch() {
     content.urlsItems = []
 
     await getUrlByMyAnimeList(content.urlType, content.limit)
+    console.log(content.urlsItems)
     await getInformationForUrls(content.urlType, content.limit)
     removeUnwanted(content)
 
@@ -23,12 +24,19 @@ async function robotSearch() {
             const $ = cheerio.load(body)
 
             count = 0
-            $(".link-title").each(function () {
+            $(".seasonal-anime").each(function () {
                 if (count < limit) {
-                    let thisUrl = $(this).attr("href").replace('Ψ', '').replace('★', '').replace('√', '')
-                    content.urlsItems.push(thisUrl)
-                    console.log(`\n> [search-robot] Adicionando URL: ${thisUrl}`)
-                    count++
+                    let thisUrl = $(this).find(".link-title").attr("href").replace(/Ψ/g, '').replace(/★/g, '').replace(/√/g, '').replace(/☆/g, '').replace(/½/g, '')
+
+                    let text = $(this).find(".information .info").text().trim()
+
+                    if (text.indexOf("TV") === -1 && content.type === "anime") {
+                        console.log(`\n> [search-robot] URL ignorada por nao se encaixar nos requisitos: ${thisUrl}`)
+                    } else {
+                        content.urlsItems.push(thisUrl)
+                        console.log(`\n> [search-robot] Adicionando URL: ${thisUrl}`)
+                        count++
+                    }
                 }
             })
         })
@@ -44,20 +52,12 @@ async function robotSearch() {
             score = []
             $(".information").each(function () {
                 if (countInfo < limit) {
-                    let text = $(this).find(".info").text().trim()
-                    if (text.indexOf("TV") === -1 && content.type === "anime") {
-                        console.log(`\n> [search-robot] ...\n===========================\nUma URL foi removida por nao se encaixar no requisito "TV Series".\nURL removida: ${urlsItems[countInfo]}\n===========================`)
-                        content.urlsItems.splice(countInfo, 1)
-                    } else {
-                        let release = $(this).find(".info").text().trim().split(",")[1]
-                        let scoreMyAnimeList = $(this).find(".score").text().trim()
-                        let actualYear = new Date().getFullYear();
+                    let release = $(this).find(".info").text().trim().split(",")[1]
+                    let scoreMyAnimeList = $(this).find(".score").text().trim()
+                    let actualYear = new Date().getFullYear();
 
-                        let newScore = scoreMyAnimeList - ((actualYear - release) * 0.05)
-
-                        score.push(newScore)
-                    }
-
+                    let newScore = scoreMyAnimeList - ((actualYear - release) * 0.05)
+                    score.push(newScore)
                     countInfo++
                 }
             })
