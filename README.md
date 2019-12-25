@@ -16,12 +16,17 @@ O que você precisa para instalar o software e como instalá-lo
 ### Windows
 
 ### MacOS
+Para o MacOS a maneira mais fácil é utilizando o Homebrew, para instala-lo, execute o comando abaixo em seu terminal.
 ```
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 ```
+
+Agora utilize este comando para instalar o ImageMagick
 ```
 brew install imagemagick
 ```
+
+O ImageMagick depende das fontes Ghostscript. Para instalá-los, digite:
 ```
 brew install ghostscript
 ```
