@@ -107,7 +107,7 @@ async function robotInput() {
     }
 
     function createDir(content) {
-        const dirName = `${content.type}_${content.subType}-${content.changeSubType.toLowerCase()}`
+        const dirName = `${content.type}_${content.subType}-${content.changeSubType.toLowerCase().replace(/ /g, '-')}`
         content.dirName = dirName
 
         const dir = `./content/${content.dirName}`;

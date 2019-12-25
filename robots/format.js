@@ -24,7 +24,7 @@ function robotFormat() {
             console.log(`\n> [format-robot] [${i+1}] [${item[i].name}] Formatando...\n`)
             const title = `<!-- wp:heading -->\n<h2>${item[i].name}</h2>\n<!-- /wp:heading -->`
             const image = `<!-- wp:image {"align":"wide","sizeSlug":"large"} -->
-<figure class="wp-block-image alignwide size-large"><img src="${item[i].imgPath}?" alt="${item[i].name}"/></figure>
+<figure class="wp-block-image alignwide size-large"><img src="${item[i].imgPath.replace(/ /g, "")}" alt="${item[i].name}"/></figure>
 <!-- /wp:image -->`
 
             if (content.type === "anime") {

@@ -10,7 +10,6 @@ async function robotSearch() {
     content.urlsItems = []
 
     await getUrlByMyAnimeList(content.urlType, content.limit)
-    console.log(content.urlsItems)
     await getInformationForUrls(content.urlType, content.limit)
     removeUnwanted(content)
 

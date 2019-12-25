@@ -1,4 +1,4 @@
 {
-    "apiKey": "YOUR API KEY OF GOOGLE CUSTOM SEARCH",
-    "searchEngineId": "YOUR SEARCH ENGINE ID"
+    "apiKey": "...",
+    "searchEngineId": "..."
 }
