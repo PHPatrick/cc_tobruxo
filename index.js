@@ -1,3 +1,4 @@
+const readline = require("readline-sync");
 const fs = require("fs");
 
 const robots = {
@@ -19,13 +20,33 @@ async function start() {
 
     const content = robots.state.load()
 
+    wantToSaveTheBlackList(content.urlsItems)
+
     fs.writeFile(`./content/${content.dirName}/wp-content.txt`, content.wpContent,
         function (erro) {
             if (erro) {
                 throw erro;
             }
-            console.log("=========================\nArquivo salvo com sucesso!\n=========================");
+            console.log("[ ToBruxo ] Obrigado por utilizar CC_ToBruxo\n Encontrou algum bug? Reporte em nosso repositorio do github!\nhttps://github.com/gabzedine/cc_tobruxo")
         });
+
+    function wantToSaveTheBlackList(urlsItems) {
+        const blackList = robots.state.loadBlackList()
+        const prefixes = ["SIM", "NAO"];
+
+        const selectedPrefix = readline.keyInSelect(
+            prefixes,
+            "\n> Deseja atualizar a lista negra?  "
+        );
+
+        if (selectedPrefix === 0) {
+            for (let i = 0; i < urlsItems.length; i++) {
+                blackList.urls.push(urlsItems[i])
+            }
+            robots.state.saveBlackList(blackList)
+        }
+        console.log("\n[ ... ]\n");
+    }
 }
 
 start();

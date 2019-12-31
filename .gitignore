@@ -105,6 +105,8 @@ dist
 .tern-port
 
 content.json
-*.DS_Store
 .DS_Store
 */.DS_Store
+package-lock.json
+content/anime*
+content/manga*

@@ -7,16 +7,17 @@ const state = require("./state")
 async function robotSearch() {
     console.log('\n> [search-robot] Start...\n')
     const content = state.load()
+    const blackList = state.loadBlackList()
     content.urlsItems = []
 
-    await getUrlByMyAnimeList(content.urlType, content.limit)
+    await getUrlByMyAnimeList(content.urlType, content.limit, blackList)
     await getInformationForUrls(content.urlType, content.limit)
     removeUnwanted(content)
 
     state.save(content)
     console.log('\n> [search-robot] Stop...\n')
 
-    async function getUrlByMyAnimeList(url, limit) {
+    async function getUrlByMyAnimeList(url, limit, blackList) {
         await request(url, function (err, res, body) {
             if (err) console.log('Erro: ' + err)
 
@@ -29,7 +30,7 @@ async function robotSearch() {
 
                     let text = $(this).find(".information .info").text().trim()
 
-                    if (text.indexOf("TV") === -1 && content.type === "anime") {
+                    if ((text.indexOf("TV") === -1 && content.type === "anime") || blackList.urls.includes(thisUrl)) {
                         console.log(`\n> [search-robot] URL ignorada por nao se encaixar nos requisitos: ${thisUrl}`)
                     } else {
                         content.urlsItems.push(thisUrl)

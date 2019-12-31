@@ -1,5 +1,6 @@
 const fs = require("fs")
 const contentFilePath = "./content.json"
+const contentFilePathBlackList = "./blackList.json"
 
 function save(content) {
     const contentString = JSON.stringify(content)
@@ -14,7 +15,22 @@ function load() {
     return contentJson
 }
 
+function saveBlackList(blackList) {
+    const contentString = JSON.stringify(blackList)
+    console.log(`\n> [state-robot] Lista negra salva com sucesso...`)
+    return fs.writeFileSync(contentFilePathBlackList, contentString)
+}
+
+function loadBlackList() {
+    const fileBuffer = fs.readFileSync(contentFilePathBlackList, "utf-8")
+    const blackListJson = JSON.parse(fileBuffer)
+    console.log(`\n> [state-robot] Lista negra carregada com sucesso...`)
+    return blackListJson
+}
+
 module.exports = {
     save,
-    load
+    load,
+    saveBlackList,
+    loadBlackList
 }
