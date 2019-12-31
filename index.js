@@ -45,7 +45,7 @@ async function start() {
             }
             robots.state.saveBlackList(blackList)
         }
-        console.log("\n[ ... ]\n");
+        console.log("\n[ ... ]\n")
     }
 }
 
