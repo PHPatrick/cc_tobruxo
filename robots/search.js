@@ -11,7 +11,8 @@ async function robotSearch() {
     content.urlsItems = []
 
     await getUrlByMyAnimeList(content.urlType, content.limit, blackList)
-    await getInformationForUrls(content.urlType, content.limit)
+    await getInformationForUrls(content)
+
     removeUnwanted(content)
 
     state.save(content)
@@ -42,32 +43,25 @@ async function robotSearch() {
         })
     }
 
-    async function getInformationForUrls(url, limit) {
-        await request(url, function (err, res, body) {
-            if (err) console.log('Erro: ' + err)
+    async function getInformationForUrls(content) {
+        for (let i = 0; i < content.urlsItems.length; i++) {
+            await request(content.urlsItems[i], function (err, res, body) {
+                if (err) console.log('Erro: ' + err)
 
-            const $ = cheerio.load(body)
+                const $ = cheerio.load(body)
 
-            countInfo = 0
-            score = []
-            $(".information").each(function () {
-                if (countInfo < limit) {
-                    let release = $(this).find(".info").text().trim().split(",")[1]
-                    let scoreMyAnimeList = $(this).find(".score").text().trim()
-                    let actualYear = new Date().getFullYear();
 
-                    let newScore = scoreMyAnimeList - ((actualYear - release) * 0.05)
-                    score.push(newScore)
-                    countInfo++
-                }
+                let release = $(".information-block .season a").text().trim().split(" ")[1]
+                let scoreMyAnimeList = $("[data-title='score']").text().trim()
+                let actualYear = new Date().getFullYear();
+
+                let newScore = scoreMyAnimeList - ((actualYear - release) * 0.05)
+
+                content.urlsItems[i] = `${newScore}::::${content.urlsItems[i]}`
+
             })
-
-            for (let i = 0; i < content.urlsItems.length; i++) {
-                content.urlsItems[i] = `${score[i]}::::${content.urlsItems[i]}`
-            }
-
-            content.urlsItems.sort().reverse()
-        })
+        }
+        content.urlsItems.sort().reverse()
     }
 
     function removeUnwanted(content) {

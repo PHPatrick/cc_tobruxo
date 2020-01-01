@@ -36,7 +36,7 @@ async function start() {
 
         const selectedPrefix = readline.keyInSelect(
             prefixes,
-            "\n> Deseja atualizar a lista negra?  "
+            "> Deseja atualizar a lista negra?\n IMPORTANTE!!\n Somente responda 'SIM' apos a publicacao do artigo.\n>"
         );
 
         if (selectedPrefix === 0) {

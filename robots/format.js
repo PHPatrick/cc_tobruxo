@@ -58,7 +58,7 @@ function robotFormat() {
         let thisNameEnglish = []
         for (let i = 0; i < item.length; i++) {
             let verifyExist = item[i].info.nameEnglish.length === 0 ? "---" : item[i].info.nameEnglish
-            thisNameEnglish.push(`<li>${verifyExist}</li>`)
+            thisNameEnglish.push(`<li>.${verifyExist}</li>`)
         }
 
         let mid = `</ol><!-- /wp:list --></div><!-- /wp:column --><!-- wp:column --><div class="wp-block-column"><!-- wp:paragraph {"align":"left"} --><p class="has-text-align-left"><strong>Nome em japonês</strong></p><!-- /wp:paragraph --><!-- wp:list {"ordered":true} --><ol>`
@@ -66,7 +66,7 @@ function robotFormat() {
         let thisNameJapanese = []
         for (let i = 0; i < item.length; i++) {
             let verifyNameJapanese = item[i].info.nameEnglish.indexOf(item[i].name) !== -1 ? "---" : item[i].name
-            thisNameJapanese.push(`<li>${verifyNameJapanese}</li>`)
+            thisNameJapanese.push(`<li>.${verifyNameJapanese}</li>`)
         }
 
         let foot = `</ol><!-- /wp:list --></div><!-- /wp:column --></div><!-- /wp:columns --><!-- wp:separator --><hr class="wp-block-separator"/><!-- /wp:separator -->`
