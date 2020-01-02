@@ -25,6 +25,7 @@ async function robotText() {
 
             const $ = cheerio.load(body);
 
+
             if (content.type === "anime") {
                 captureContentForAnimes()
             } else if (content.type === "manga") {

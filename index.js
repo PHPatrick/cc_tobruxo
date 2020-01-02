@@ -20,15 +20,22 @@ async function start() {
 
     const content = robots.state.load()
 
+
+    await saveContent(content)
     wantToSaveTheBlackList(content.urlsItems)
 
-    fs.writeFile(`./content/${content.dirName}/wp-content.txt`, content.wpContent,
-        function (erro) {
-            if (erro) {
-                throw erro;
-            }
-            console.log("[ ToBruxo ] Obrigado por utilizar CC_ToBruxo\n Encontrou algum bug? Reporte em nosso repositorio do github!\nhttps://github.com/gabzedine/cc_tobruxo")
+    async function saveContent(content) {
+        return new Promise((resolve, reject) => {
+            fs.writeFile(`./content/${content.dirName}/wp-content.txt`, content.wpContent, function (err) {
+                if (err) {
+                    reject(err);
+                } else {
+                    resolve();
+                    console.log("> Conteudo criado com sucesso!");
+                }
+            });
         });
+    }
 
     function wantToSaveTheBlackList(urlsItems) {
         const blackList = robots.state.loadBlackList()
@@ -45,7 +52,7 @@ async function start() {
             }
             robots.state.saveBlackList(blackList)
         }
-        console.log("\n[ ... ]\n")
+        console.log("\n[ ToBruxo ] Obrigado por utilizar CC_ToBruxo\n Encontrou algum bug? Reporte em nosso repositorio do github!\nhttps://github.com/gabzedine/cc_tobruxo")
     }
 }
 
