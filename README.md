@@ -12,10 +12,39 @@ O que você precisa para instalar o software e como instalá-lo
 
 
 #### Testando o Node.JS
+
+Após instalar o Node, execute o seguinte comando:
+
+##### Windows
+````
+node --version
+````
+
+##### Linux, MacOS
 ````
 node -v
 ````
 
+Deverá retornar algo parecido com isto:
+```
+v12.12.0
+```
+
+Além do Node, também é necessário o [NPM](https://www.npmjs.com/), mas não se preocupe, normalmente ele vem junto com a instalação do Node. Para testá-lo, execute este comando:
+##### Windows
+````
+npm --version
+````
+
+##### Linux, MacOS
+````
+npm -v
+````
+
+Deverá retornar algo parecido com isto:
+```
+6.13.4
+```
 
 ## Instalando o ImageMagick
 
