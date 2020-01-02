@@ -76,7 +76,7 @@ Acesse o site oficial do ImageMagick: [https://imagemagick.org/script/download.p
 
 Selecione a primeira opção (mais atualizada) do HTPP, após baixar o instalador, abra-o e siga os processos de instalação, quando chegar em uma tela de seleção de checkboxs, recomendo que você habilite todos, e prossiga com a instalação.
 
---
+⠀⠀⠀⠀⠀⠀⠀⠀⠀
 
 ### MacOS
 Para o MacOS a maneira mais fácil é utilizando o Homebrew, para instala-lo, execute o comando abaixo em seu terminal.
@@ -94,13 +94,17 @@ O ImageMagick depende das fontes Ghostscript. Para instalá-los, digite:
 brew install ghostscript
 ```
 
+⠀⠀⠀⠀⠀⠀⠀⠀⠀
+
 ### Linux
 
 * [Documentação oficial ImageMagick para Unix](https://imagemagick.org/script/download.php#unix)
 
+⠀⠀⠀⠀⠀⠀⠀⠀⠀
+
 ### Testando o funcionamento do ImageMagick
 
-Quando o processo de instalação for concluido, para testar se o Image Magick está funcionando corretamente, digite o seguinte comando no seu Terminal / CMD:
+Quando o processo de instalação for concluido, para testar se o Image Magick está funcionando corretamente, digite o seguinte comando no seu terminal / cmd:
 ````
 convert -version
 ````
