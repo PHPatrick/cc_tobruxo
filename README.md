@@ -47,6 +47,7 @@ Deverá retornar algo parecido com isto:
 ```
 6.13.4
 ```
+------
 
 ## Instalando o ImageMagick
 
