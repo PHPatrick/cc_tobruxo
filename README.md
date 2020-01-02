@@ -36,14 +36,12 @@ node --version
 ````
 
 ⠀⠀⠀⠀⠀⠀⠀⠀⠀
-
 ##### Linux, MacOS
 ````
 node -v
 ````
 
 ⠀⠀⠀⠀⠀⠀⠀⠀⠀
-
 Deverá retornar algo parecido com isto:
 ```
 v12.12.0
@@ -59,14 +57,12 @@ npm --version
 ````
 
 ⠀⠀⠀⠀⠀⠀⠀⠀⠀
-
 ##### Linux, MacOS
 ````
 npm -v
 ````
 
 ⠀⠀⠀⠀⠀⠀⠀⠀⠀
-
 Deverá retornar algo parecido com isto:
 ```
 6.13.4
@@ -82,7 +78,7 @@ Iremos utilizar o ImageMagick para tratar e redimensionar as imagens.
 ### Windows
 Acesse o site oficial do ImageMagick: [https://imagemagick.org/script/download.php#windows](https://imagemagick.org/script/download.php#windows)
 
-Selecione a primeira opção (mais atualizada) do HTPP, após baixar o instalador, abra-o e siga os processos de instalação, quando chegar em uma tela de seleção de checkboxs, recomendo que você habilite todos, e prossiga com a instalação.
+Selecione a primeira opção (mais atualizada) do HTPP, após baixar o instalador, abra-o e siga os processos de instalação, quando chegar em uma tela de seleção de checkboxs, recomendo que você habilite todos (caso não queira, habilite somente a opção que contém a palavra "convert"), e prossiga com a instalação.
 
 ⠀⠀⠀⠀⠀⠀⠀⠀⠀
 
