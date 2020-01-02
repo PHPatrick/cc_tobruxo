@@ -44,6 +44,7 @@ async function robotSearch() {
     }
 
     async function getInformationForUrls(content) {
+        console.log('\n> [search-robot] Ordenando o conteudo pelo score, aguarde...')
         for (let i = 0; i < content.urlsItems.length; i++) {
             await request(content.urlsItems[i], function (err, res, body) {
                 if (err) console.log('Erro: ' + err)

@@ -47,7 +47,6 @@ async function robotText() {
                         watch: "??"
                     },
                     synopsis: "",
-                    analyze: "",
                     images: "",
                     imgPath: "",
                     structuredData: {

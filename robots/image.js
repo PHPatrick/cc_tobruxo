@@ -13,6 +13,7 @@ async function imageRobot() {
     console.log('\n> [image-robot] Start...')
     const content = state.load()
     console.log('\n> [image-robot] Imagens sendo baixadas, aguarde...\n')
+
     await fetchImageOfAllNames(content)
     await downloadAllImages(content);
     await convertAllImages(content)
@@ -22,7 +23,7 @@ async function imageRobot() {
 
     async function fetchImageOfAllNames(content) {
         for (const item of content.items) {
-            const query = `${item.name} wallpaper`;
+            const query = `anime ${item.name} ${content.changeSubType} wallpaper`;
             item.images = await returnImagesLinks(query);
 
             item.googleSeachQuery = query;
@@ -35,7 +36,7 @@ async function imageRobot() {
             cx: googleSearchCredentials.searchEngineId,
             q: query,
             searchType: "image",
-            // imgSize: "large",
+            imgSize: "large",
             num: 2
         });
 
@@ -97,9 +98,13 @@ async function imageRobot() {
 
             const data = new Date();
             const year = data.getFullYear();
-            const month = data.getMonth() + 1;
+            let month = data.getMonth() + 1;
+
+            if (month < 10) month = `0${month}`
 
             content.items[itemIndex - 1].imgPath = `https://tobruxo.com.br/wp-content/uploads/${year}/${month}/${nameImgConverted}`
+
+            console.log(content.items[itemIndex - 1].imgPath)
 
             const inputFile = `./content/${dirName}/${itemIndex}-${nameItem}-original.jpg[0]`
             const outputFile = `./content/${dirName}/${nameImgConverted}`

@@ -1,59 +1,32 @@
-const readline = require("readline-sync");
-const fs = require("fs");
-
 const robots = {
     input: require("./robots/input"),
     search: require("./robots/search"),
     text: require("./robots/text"),
     image: require("./robots/image"),
     format: require("./robots/format"),
-    state: require("./robots/state")
+    save: require("./robots/save")
 };
 
 async function start() {
 
+    // Robô responsável por capturar os inputs do usuário 
     await robots.input()
+
+    // Robô responsável por buscar e capturar as urls
     await robots.search()
+
+    // Robô responsável por capturar, formatar e traduzir o conteúdo de texto
     await robots.text()
+
+    // Robô responsável por buscar e baixar as imagens
     await robots.image()
-    robots.format()
 
-    const content = robots.state.load()
+    // Robô responsável pela formatação do conteúdo [ wp-content ]
+    await robots.format()
 
+    // Robô responsável por salvar os conteúdos de texto [ wp-content.txt, dados-estruturados.txt ]
+    await robots.save()
 
-    await saveContent(content)
-    wantToSaveTheBlackList(content.urlsItems)
-
-    async function saveContent(content) {
-        return new Promise((resolve, reject) => {
-            fs.writeFile(`./content/${content.dirName}/wp-content.txt`, content.wpContent, function (err) {
-                if (err) {
-                    reject(err);
-                } else {
-                    resolve();
-                    console.log("> Conteudo criado com sucesso!");
-                }
-            });
-        });
-    }
-
-    function wantToSaveTheBlackList(urlsItems) {
-        const blackList = robots.state.loadBlackList()
-        const prefixes = ["SIM", "NAO"];
-
-        const selectedPrefix = readline.keyInSelect(
-            prefixes,
-            "> Deseja atualizar a lista negra?\n IMPORTANTE!!\n Somente responda 'SIM' apos a publicacao do artigo.\n>"
-        );
-
-        if (selectedPrefix === 0) {
-            for (let i = 0; i < urlsItems.length; i++) {
-                blackList.urls.push(urlsItems[i])
-            }
-            robots.state.saveBlackList(blackList)
-        }
-        console.log("\n[ ToBruxo ] Obrigado por utilizar CC_ToBruxo\n Encontrou algum bug? Reporte em nosso repositorio do github!\nhttps://github.com/gabzedine/cc_tobruxo")
-    }
 }
 
 start();

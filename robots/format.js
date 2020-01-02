@@ -1,36 +1,34 @@
-const fs = require("fs");
 const state = require("./state")
 
-function robotFormat() {
+async function robotFormat() {
     console.log('\n> [text-format] Start...\n')
     const content = state.load()
 
-    generateStructure(content.items)
-    generateStructuredData(content.items)
+    await generateStructure(content.items)
 
     console.log("[robot-format] Formatação concluida")
 
     state.save(content)
     console.log('\n> [format-robot] Stop...\n')
 
-    function generateStructure(item) {
+    async function generateStructure(item) {
         let structureContent = ""
         let list = ""
 
-        let tableNames = generateTableNames(content.items)
+        let tableNames = await generateTableNames(content.items)
 
 
         for (let i = 0; i < item.length; i++) {
             console.log(`\n> [format-robot] [${i+1}] [${item[i].name}] Formatando...\n`)
             const title = `<!-- wp:heading -->\n<h2>${item[i].name}</h2>\n<!-- /wp:heading -->`
             const image = `<!-- wp:image {"align":"wide","sizeSlug":"large"} -->
-<figure class="wp-block-image alignwide size-large"><img src="${item[i].imgPath.replace(/ /g, "")}?" alt="${item[i].name}"/></figure>
+<figure class="wp-block-image alignwide size-large"><img src="${item[i].imgPath.replace(/ /g, "")}?" alt="${item[i].name}"/><figcaption>${item[i].name}</figcaption></figure>
 <!-- /wp:image -->`
 
             if (content.type === "anime") {
-                list = animeInfoStructure(item[i])
+                list = await animeInfoStructure(item[i])
             } else if (content.type === "manga") {
-                list = mangaInfoStructure(item[i])
+                list = await mangaInfoStructure(item[i])
             }
 
             const linesSynopsis = item[i].synopsis.split(". ")
@@ -52,7 +50,7 @@ function robotFormat() {
         content.wpContent = `${tableNames} ${structureContent}`
     }
 
-    function generateTableNames(item) {
+    async function generateTableNames(item) {
         let head = `<!-- wp:columns --><div class="wp-block-columns"><!-- wp:column --><div class="wp-block-column"><!-- wp:paragraph {"align":"left"} --><p class="has-text-align-left"><strong>Nome em inglês</strong></p><!-- /wp:paragraph --><!-- wp:list {"ordered":true} --><ol>`
 
         let thisNameEnglish = []
@@ -74,7 +72,7 @@ function robotFormat() {
         return head + thisNameEnglish.join("\n") + mid + thisNameJapanese.join("\n") + foot
     }
 
-    function animeInfoStructure(item) {
+    async function animeInfoStructure(item) {
         return `<!-- wp:list -->
     <ul>
         <li><strong>Nome em Inglês: </strong>&nbsp;${item.info.nameEnglish}<br><strong>Nome em Japonês:</strong> ${item.info.nameJapanese}</li>
@@ -88,7 +86,7 @@ function robotFormat() {
     <!-- /wp:list -->`
     }
 
-    function mangaInfoStructure(item) {
+    async function mangaInfoStructure(item) {
         return `<!-- wp:list -->
     <ul>
         <li><strong>Nome em Inglês: </strong>&nbsp;${item.info.nameEnglish}<br><strong>Nome em Japonês:</strong> ${item.info.nameJapanese}</li>
@@ -102,21 +100,6 @@ function robotFormat() {
     </ul>
     <!-- /wp:list -->`
     }
-
-    function generateStructuredData(items) {
-        const openTagScript = '<script type="application/ld+json">'
-        const closeTagScript = '</script>'
-        let arrStructuredData = []
-
-        for (let i = 0; i < items.length; i++) {
-            arrStructuredData.push(items[i].structuredData)
-        }
-
-        const structuredDataContent = openTagScript + JSON.stringify(arrStructuredData) + closeTagScript
-
-        fs.writeFileSync(`./content/${content.dirName}/dados-estruturados.txt`, structuredDataContent)
-    }
-
 }
 
 module.exports = robotFormat
