@@ -24,18 +24,18 @@ O que você precisa para instalar o software e como instalá-lo
 
 ## Node.JS e npm
 
-#### Testando o Node.JS
+### Testando o Node.JS
 
 Para a instalação do Node, acesse [https://nodejs.org/](https://nodejs.org/en/) e faça download da versão LTS (recomendado).
 
 Após a instalação, execute o seguinte comando no seu terminal / cmd:
 
-##### Windows
+#### Windows
 ````
 node --version
 ````
 
-##### Linux, MacOS
+#### Linux, MacOS
 ````
 node -v
 ````
@@ -45,16 +45,16 @@ Deverá retornar algo parecido com isto:
 v12.12.0
 ```
 ------
-#### Testando o npm
+### Testando o npm
 
 Além do Node, também é necessário o [npm](https://www.npmjs.com/), mas não se preocupe, normalmente ele vem junto com a instalação do Node. Para testá-lo, execute este comando:
 
-##### Windows
+#### Windows
 ````
 npm --version
 ````
 
-##### Linux, MacOS
+#### Linux, MacOS
 ````
 npm -v
 ````
