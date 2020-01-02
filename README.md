@@ -4,16 +4,31 @@
 
 Essas instruções fornecerão uma cópia do projeto em execução na sua máquina local para fins de desenvolvimento e teste.
 
+------
+
 ## Pré-requesitos
 
 O que você precisa para instalar o software e como instalá-lo
 * [Node.JS](https://nodejs.org/en/)
 * [ImageMagick](https://imagemagick.org/)
+* [npm](https://www.npmjs.com/)
 
+### API's
+* [Cloud Translation API](https://cloud.google.com/translate/docs/reference/rest/)
+* [Custom Search API](https://developers.google.com/custom-search/v1/overview)
+
+#### Pré-requesitos para o Custom Search API
+* [Search Engine ID](https://cse.google.com/cse/all)
+
+------
+
+## Node.JS e npm
 
 #### Testando o Node.JS
 
-Após instalar o Node, execute o seguinte comando no seu terminal / cmd:
+Para a instalação do Node, acesse [https://nodejs.org/](https://nodejs.org/en/) e faça download da versão LTS (recomendado).
+
+Após a instalação, execute o seguinte comando no seu terminal / cmd:
 
 ##### Windows
 ````
@@ -50,7 +65,11 @@ Deverá retornar algo parecido com isto:
 ```
 ------
 
-## Instalando o ImageMagick
+## ImageMagick
+
+Iremos utilizar o ImageMagick para tratar e redimensionar as imagens.
+
+### Instalando o ImageMagick
 
 ### Windows
 Acesse o site oficial do ImageMagick: [https://imagemagick.org/script/download.php#windows](https://imagemagick.org/script/download.php#windows)
@@ -94,11 +113,6 @@ Delegates (built-in): bzlib freetype heic jng jp2 jpeg lcms ltdl lzma openexr pn
 ------
 
 ### API's
-* [Cloud Translation API](https://cloud.google.com/translate/docs/reference/rest/)
-* [Custom Search API](https://developers.google.com/custom-search/v1/overview)
-
-#### Pré-requesitos para API's
-* [Search Engine ID](https://cse.google.com/cse/all)
 
 Após pegar a API key do Cloud Translation e Custom Search, e o Search Engine ID adicione-os nos arquivos da pasta ```/keys```
 
