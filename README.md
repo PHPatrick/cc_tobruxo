@@ -34,7 +34,7 @@ Após a instalação, execute o seguinte comando no seu terminal / cmd:
 ````
 node --version
 ````
-⠀⠀⠀
+
 ##### Linux, MacOS
 ````
 node -v
@@ -53,7 +53,7 @@ Além do Node, também é necessário o [npm](https://www.npmjs.com/), mas não 
 ````
 npm --version
 ````
-⠀⠀⠀
+
 ##### Linux, MacOS
 ````
 npm -v
