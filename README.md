@@ -30,6 +30,10 @@ Deverá retornar algo parecido com isto:
 v12.12.0
 ```
 
+
+
+
+
 Além do Node, também é necessário o [NPM](https://www.npmjs.com/), mas não se preocupe, normalmente ele vem junto com a instalação do Node. Para testá-lo, execute este comando:
 ##### Windows
 ````
