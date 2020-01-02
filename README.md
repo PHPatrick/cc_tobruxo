@@ -76,6 +76,8 @@ Acesse o site oficial do ImageMagick: [https://imagemagick.org/script/download.p
 
 Selecione a primeira opção (mais atualizada) do HTPP, após baixar o instalador, abra-o e siga os processos de instalação, quando chegar em uma tela de seleção de checkboxs, recomendo que você habilite todos, e prossiga com a instalação.
 
+--
+
 ### MacOS
 Para o MacOS a maneira mais fácil é utilizando o Homebrew, para instala-lo, execute o comando abaixo em seu terminal.
 ```
