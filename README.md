@@ -11,12 +11,18 @@ O que você precisa para instalar o software e como instalá-lo
 * [ImageMagick](https://imagemagick.org/)
 
 
-## Instalando ImageMagick
+#### Testando o Node.JS
+````
+node -v
+````
+
+
+## Instalando o ImageMagick
 
 ### Windows
 Acesse o site oficial do ImageMagick: [https://imagemagick.org/script/download.php#windows](https://imagemagick.org/script/download.php#windows)
 
-Selecione a primeira opção (mais atualizada) do HTPP, após baixar o instalador, abra-o e siga os processos de instalação, quando chegar em uma tela de seleção de checkboxs, recomendo que você habilite todos.
+Selecione a primeira opção (mais atualizada) do HTPP, após baixar o instalador, abra-o e siga os processos de instalação, quando chegar em uma tela de seleção de checkboxs, recomendo que você habilite todos, e prossiga com a instalação.
 
 ### MacOS
 Para o MacOS a maneira mais fácil é utilizando o Homebrew, para instala-lo, execute o comando abaixo em seu terminal.
@@ -36,21 +42,24 @@ brew install ghostscript
 
 ### Linux
 
-* [Documentação oficial ImagineMagick para Unix](https://imagemagick.org/script/download.php#unix)
+* [Documentação oficial ImageMagick para Unix](https://imagemagick.org/script/download.php#unix)
 
-------
+### Testando o funcionamento do ImageMagick
 
-#### Testando
-##### Node.JS
-````
-node -v
-````
-
-##### ImageMagick
+Quando o processo de instalação for concluido, para testar se o Image Magick está funcionando corretamente, digite o seguinte comando no seu Terminal / CMD:
 ````
 convert -version
 ````
+Deverá retornar algo parecido com isso:
+```
+Version: ImageMagick 7.0.9-8 Q16 x86_64 2019-12-09 https://imagemagick.org
+Copyright: © 1999-2020 ImageMagick Studio LLC
+License: https://imagemagick.org/script/license.php
+Features: Cipher DPC HDRI Modules OpenMP(3.1) 
+Delegates (built-in): bzlib freetype heic jng jp2 jpeg lcms ltdl lzma openexr png tiff webp xml zlib
+```
 ------
+
 ### API's
 * [Cloud Translation API](https://cloud.google.com/translate/docs/reference/rest/)
 * [Custom Search API](https://developers.google.com/custom-search/v1/overview)
