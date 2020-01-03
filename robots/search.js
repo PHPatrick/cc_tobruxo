@@ -27,7 +27,7 @@ async function robotSearch () {
       let count = 0
       $('.seasonal-anime').each(function () {
         if (count < limit) {
-          const thisUrl = $(this).find('.link-title').attr('href').replace(/Ψ/g, '').replace(/★/g, '').replace(/√/g, '').replace(/☆/g, '').replace(/½/g, '')
+          const thisUrl = $(this).find('.link-title').attr('href').replace(/Ψ/g, '').replace(/★/g, '').replace(/√/g, '').replace(/☆/g, '').replace(/½/g, '').replace(/♡/g, '').replace(/△/g, '').replace(/☆/g, '')
 
           const text = $(this).find('.information .info').text().trim()
 
@@ -52,7 +52,8 @@ async function robotSearch () {
         const $ = cheerio.load(body)
 
         const release = $('.information-block .season a').text().trim().split(' ')[1]
-        const scoreMyAnimeList = $("[data-title='score']").text().trim()
+        let scoreMyAnimeList = $("[data-title='score']").text().trim()
+        scoreMyAnimeList = scoreMyAnimeList.indexOf('N/A') === -1 ? scoreMyAnimeList : 5
         const actualYear = new Date().getFullYear()
 
         const newScore = scoreMyAnimeList - ((actualYear - release) * 0.05)

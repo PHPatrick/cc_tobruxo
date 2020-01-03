@@ -23,7 +23,7 @@ async function imageRobot () {
 
   async function fetchImageOfAllNames (content) {
     for (const item of content.items) {
-      const query = `anime ${item.name} ${content.changeSubType} wallpaper`
+      const query = `anime ${item.name} wallpaper`
       item.images = await returnImagesLinks(query)
 
       item.googleSeachQuery = query
