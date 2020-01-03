@@ -8,22 +8,22 @@ const robots = {
 }
 
 async function start () {
-  // Robô responsável por capturar os inputs do usuário
+  // Robot responsible for capturing user inputs
   await robots.input()
 
-  // Robô responsável por buscar e capturar as urls
+  // Robot responsible for fetching and capturing urls
   await robots.search()
 
-  // Robô responsável por capturar, formatar e traduzir o conteúdo de texto
+  // Robot responsible for capturing, formatting and translating the text of content
   await robots.text()
 
-  // Robô responsável por buscar e baixar as imagens
+  // Robot responsible for fetching and downloads images
   await robots.image()
 
-  // Robô responsável pela formatação do conteúdo [ wp-content ]
+  // Robot responsible for formatting content [ wp-content ]
   await robots.format()
 
-  // Robô responsável por salvar os conteúdos de texto [ wp-content.txt, dados-estruturados.txt ]
+  // Robot responsible for save the text contents [ wp-content.txt, dados-estruturados.txt ]
   await robots.save()
 }
 
