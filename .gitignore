@@ -110,4 +110,5 @@ content.json
 package-lock.json
 content/anime*
 content/manga*
+content/custom*
 yarn.lock

@@ -7,15 +7,21 @@ const fs = require('fs')
 async function robotInput () {
   console.log('\n> [input-robot] Start...\n')
   const content = {}
-  await askType(content)
   askLimit(content)
+  await askType(content)
   createDir(content)
 
   state.save(content)
   console.log('\n> [input-robot] Stop...\n')
 
+  function askLimit (content) {
+    const itemsLimit = readline.question('\n> [input-robot] Quantidade de obras (animes e/ou mangas): ')
+
+    content.limit = itemsLimit
+  }
+
   async function askType (content) {
-    const prefixes = ['Animes (Genero)', 'Animes (Temporada)', 'Manga (Genero)']
+    const prefixes = ['Animes (Genero)', 'Animes (Temporada)', 'Manga (Genero)', 'Escolhas personalizadas']
 
     const selectedPrefix = readline.keyInSelect(
       prefixes,
@@ -34,6 +40,10 @@ async function robotInput () {
       askMangaGenres()
       content.type = 'manga'
       content.subType = 'genres'
+    } else if (selectedPrefix === 3) {
+      askCustomChoices()
+      content.type = 'custom'
+      content.subType = 'choices'
     }
   }
 
@@ -99,11 +109,14 @@ async function robotInput () {
     content.urlType = `https://myanimelist.net/manga/genre/${selectedPrefix}/`
   }
 
-  function askLimit (content) {
-    const type = content.urlType.indexOf('manga') !== -1 ? 'mangas' : 'animes'
-    const itemsLimit = readline.question(`\n> [input-robot] Quantidade de ${type}: `)
+  function askCustomChoices () {
+    content.urlsItems = []
+    for (let i = 1; i <= content.limit; i++) {
+      const thisUrl = readline.question(`\n> [input-robot] Insira a url do anime ${i}: `)
+      content.urlsItems.push(thisUrl)
+    }
 
-    content.limit = itemsLimit
+    content.changeSubType = readline.question('\n> [input-robot] Defina um titulo para seu conteudo (ex: animes kawaii): ')
   }
 
   function createDir (content) {

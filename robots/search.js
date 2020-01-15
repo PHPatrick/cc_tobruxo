@@ -6,12 +6,25 @@ const state = require('./state')
 
 async function robotSearch () {
   console.log('\n> [search-robot] Start...\n')
-  const content = state.load()
-  const blackList = state.loadBlackList()
-  content.urlsItems = []
 
-  await getUrlByMyAnimeList(content.urlType, content.limit, blackList)
-  await getInformationForUrls(content)
+  const content = state.load()
+
+  if (!content.urlsItems) {
+    const prefixes = ['SIM', 'NAO']
+    const wantToUseBlackList = readline.keyInSelect(prefixes, '\n> [input-robot] Deseja utilizar a lista negra? : ')
+
+    let blackList = {}
+    if (wantToUseBlackList !== 0) {
+      blackList = { urls: [] }
+    } else {
+      blackList = state.loadBlackList()
+    }
+
+    content.urlsItems = []
+    await getUrlByMyAnimeList(content.urlType, content.limit, blackList)
+  }
+
+  await sortByScore(content)
 
   removeUnwanted(content)
 
@@ -43,7 +56,7 @@ async function robotSearch () {
     })
   }
 
-  async function getInformationForUrls (content) {
+  async function sortByScore (content) {
     console.log('\n> [search-robot] Ordenando o conteudo pelo score, aguarde...')
     for (let i = 0; i < content.urlsItems.length; i++) {
       await request(content.urlsItems[i], function (err, res, body) {
