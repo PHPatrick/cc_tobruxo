@@ -1,6 +1,6 @@
 # Nesta pasta, você irá colocar as suas credenciais.
 
-## Crie os seguintes arquivos nesta página:
+## Crie os seguintes arquivos nesta página (o nome do arquivo precisa ser exatamente o declarado abaixo):
 
 * google-search.json
 
