@@ -18,7 +18,7 @@ Preencha os campos "YOUR_API_KEY" E "YOUR_SEARCH_ENGINE_ID" com suas respectivas
 
 ```
 {
-    "API_KEY": "..."
+    "API_KEY": "YOUR_API_KEY"
 }
 ```
 Preencha o campo "YOUR_API_KEY" com sua respectiva API.
