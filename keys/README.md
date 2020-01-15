@@ -12,6 +12,8 @@
 ```
 Preencha os campos "YOUR_API_KEY" E "YOUR_SEARCH_ENGINE_ID" com suas respectivas credenciais.
 
+---
+
 * google-translate.json
 
 ```
