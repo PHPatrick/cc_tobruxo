@@ -1,8 +1,8 @@
-# In this folder you put your credentials.
+# Nesta pasta, você irá colocar as suas credenciais.
 
-## Create the following files:
+## Crie os seguintes arquivos nesta página:
 
-### google-search.json
+* google-search.json
 
 ```
 {
@@ -10,13 +10,13 @@
     "searchEngineId": "YOUR_SEARCH_ENGINE_ID"
 }
 ```
-### Preencha os campos "YOUR_API_KEY" E "YOUR_SEARCH_ENGINE_ID" com suas respectivas credenciais.
+Preencha os campos "YOUR_API_KEY" E "YOUR_SEARCH_ENGINE_ID" com suas respectivas credenciais.
 
-### google-translate.json
+* google-translate.json
 
 ```
 {
     "API_KEY": "..."
 }
 ```
-### Preencha o campo "YOUR_API_KEY" com sua respectiva API.
+Preencha o campo "YOUR_API_KEY" com sua respectiva API.
