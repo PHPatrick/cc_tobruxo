@@ -1,5 +1,10 @@
 # Create Content For ToBruxo
 
+### Ideias / Reparo
+* O nome em inglês ta vindo com mo espação.
+* Adicionar legenda nas imagens com o nome do anime.
+* Tem como não traduzir so a palavra "Slice of life"? pois fica com a tradução fatia da vida que não tem nada a ver.
+
 ## Começando
 
 Essas instruções fornecerão uma cópia do projeto em execução na sua máquina local para fins de desenvolvimento e teste.
