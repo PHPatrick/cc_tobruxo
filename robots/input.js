@@ -7,6 +7,7 @@ const fs = require('fs')
 async function robotInput () {
   console.log('\n> [input-robot] Start...\n')
   const content = {}
+  content.urlsItems = []
   askLimit(content)
   await askType(content)
   createDir(content)
@@ -110,7 +111,6 @@ async function robotInput () {
   }
 
   function askCustomChoices () {
-    content.urlsItems = []
     for (let i = 1; i <= content.limit; i++) {
       const thisUrl = readline.question(`\n> [input-robot] Insira a url do anime ${i}: `)
       content.urlsItems.push(thisUrl)

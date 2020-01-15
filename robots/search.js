@@ -9,23 +9,23 @@ async function robotSearch () {
 
   const content = state.load()
 
-  if (!content.urlsItems) {
+  if (content.urlsItems.lengt === 0) {
     const prefixes = ['SIM', 'NAO']
     const wantToUseBlackList = readline.keyInSelect(prefixes, '\n> [input-robot] Deseja utilizar a lista negra? : ')
 
     let blackList = {}
     if (wantToUseBlackList !== 0) {
-      blackList = { urls: [] }
+      blackList = {
+        urls: []
+      }
     } else {
       blackList = state.loadBlackList()
     }
 
-    content.urlsItems = []
     await getUrlByMyAnimeList(content.urlType, content.limit, blackList)
     await sortByScore(content)
+    removeUnwanted(content)
   }
-
-  removeUnwanted(content)
 
   state.save(content)
   console.log('\n> [search-robot] Stop...\n')
