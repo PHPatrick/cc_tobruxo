@@ -22,9 +22,8 @@ async function robotSearch () {
 
     content.urlsItems = []
     await getUrlByMyAnimeList(content.urlType, content.limit, blackList)
+    await sortByScore(content)
   }
-
-  await sortByScore(content)
 
   removeUnwanted(content)
 
