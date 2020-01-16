@@ -9,7 +9,7 @@ async function robotSearch () {
 
   const content = state.load()
 
-  if (content.urlsItems.lengt === 0) {
+  if (content.urlsItems.length === 0) {
     const prefixes = ['SIM', 'NAO']
     const wantToUseBlackList = readline.keyInSelect(prefixes, '\n> [input-robot] Deseja utilizar a lista negra? : ')
 
