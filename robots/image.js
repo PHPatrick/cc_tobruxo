@@ -36,7 +36,7 @@ async function imageRobot () {
       cx: googleSearchCredentials.searchEngineId,
       q: query,
       searchType: 'image',
-      imgSize: 'large',
+      imgSize: 'huge',
       num: 2
     })
 
@@ -64,12 +64,12 @@ async function imageRobot () {
           await downloadAndSaveImage(imageUrl, `${itemIndex + 1}-${nameItem}-original.jpg`)
           content.downloadedImages.push(imageUrl)
           console.log(
-                        `> [image-robot] [${itemIndex + 1}] [${imageIndex}] Baixou imagem com sucesso: ${imageUrl}\n`
+                        `\n> [image-robot] [${itemIndex + 1}] [${imageIndex}] Baixou imagem com sucesso: ${imageUrl}\n`
           )
           break
         } catch (error) {
           console.log(
-                        `> [image-robot] [${itemIndex + 1}] [${imageIndex}] Erro ao baixar (${imageUrl}): ${error}\n`
+                        `\n> [image-robot] [${itemIndex + 1}] [${imageIndex}] Erro ao baixar (${imageUrl}): ${error}\n`
           )
         }
       }
@@ -105,7 +105,7 @@ async function imageRobot () {
 
       content.items[itemIndex - 1].imgPath = `https://tobruxo.com.br/wp-content/uploads/${year}/${month}/${nameImgConverted}`
 
-      console.log(content.items[itemIndex - 1].imgPath)
+      console.log(`\n> [image-robot] [${itemIndex}] ${content.items[itemIndex - 1].imgPath}`)
 
       const inputFile = `./content/${dirName}/${itemIndex}-${nameItem}-original.jpg[0]`
       const outputFile = `./content/${dirName}/${nameImgConverted}`

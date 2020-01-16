@@ -215,7 +215,7 @@ async function robotText () {
   }
 
   async function translateContent (item) {
-    if (content.type === 'anime') {
+    if (content.type === 'anime' || content.type === 'custom') {
       item.synopsis = await translateItem(item.synopsis)
       item.info.genres = await translateItem(item.info.genres)
       item.info.aired = await translateItem(item.info.aired)

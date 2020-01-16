@@ -24,7 +24,7 @@ async function robotFormat () {
 <figure class="wp-block-image alignwide size-large"><img src="${item[i].imgPath.replace(/ /g, '')}?" alt="${item[i].name}"/><figcaption>${item[i].name}</figcaption></figure>
 <!-- /wp:image -->`
 
-      if (content.type === 'anime') {
+      if (content.type === 'anime' || content.type === 'custom') {
         list = await animeInfoStructure(item[i])
       } else if (content.type === 'manga') {
         list = await mangaInfoStructure(item[i])
@@ -38,9 +38,9 @@ async function robotFormat () {
 <hr class="wp-block-separator"/>
 <!-- /wp:separator -->
 
-<!-- wp:paragraph -->
-<p><strong>Sinopse:</strong></p>
-<!-- /wp:paragraph -->\n${synopsis}<!-- wp:separator {"color":"quaternary"} -->
+<!-- wp:heading {"level":4} -->
+<h4>Sinopse:</h4>
+<!-- /wp:heading -->\n${synopsis}<!-- wp:separator {"color":"quaternary"} -->
 <hr class="wp-block-separator has-text-color has-background has-quaternary-background-color has-quaternary-color"/>
 <!-- /wp:separator -->`
     }
