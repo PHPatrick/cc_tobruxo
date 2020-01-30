@@ -5,7 +5,6 @@
 Essas instruções fornecerão uma cópia do projeto em execução na sua máquina local para fins de desenvolvimento e teste.
 
 Se trata de um software para capturar informações de animes. Gerar uma estrutura de conteúdo e dados estruturados para criação de um artigo no WordPress.
-asdasdasdasd
 ------
 
 ## Pré-requesitos
